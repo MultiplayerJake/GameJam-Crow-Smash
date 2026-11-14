@@ -13,7 +13,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Move the ball and check for collisions
 	var collision := move_and_collide(velocity * delta)
-	print(rotationx)
 	
 	if collision:
 		var collider = collision.get_collider()
