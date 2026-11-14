@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b47tam7kp8qy2"]
+[gd_scene format=3 uid="uid://34o118j5nof2"]
 
 [ext_resource type="Script" uid="uid://enemvwk00yd8" path="res://Scripts/game.gd" id="1_2q06e"]
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_giieq"]
@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dsjg0x61it0q0" path="res://Scenes/MainScenes/ball.tscn" id="6_d22wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddf6i"]
-size = Vector2(18.69703, 15.109209)
+size = Vector2(1192, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa0de"]
-size = Vector2(22.965103, 14.868258)
+size = Vector2(214.33, 647)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f21wm"]
 
@@ -37,9 +37,7 @@ scale = Vector2(0.7887769, 0.18456118)
 texture = ExtResource("3_giieq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1162472197]
-position = Vector2(580.99994, 591.99994)
-rotation = -3.1415925
-scale = Vector2(63.753437, -7.147952)
+position = Vector2(581, 592)
 shape = SubResource("RectangleShape2D_ddf6i")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=908692387]
@@ -52,8 +50,6 @@ texture = ExtResource("2_jxumy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1377827064]
 position = Vector2(1069, 319)
-rotation = -3.1415925
-scale = Vector2(9.332742, 43.515522)
 shape = SubResource("RectangleShape2D_wa0de")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1308833931]
