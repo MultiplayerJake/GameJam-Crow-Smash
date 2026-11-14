@@ -57,6 +57,11 @@ swing={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_2="Walls"
+2d_render/layer_3="Blocks"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
