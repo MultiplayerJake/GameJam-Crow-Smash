@@ -33,3 +33,6 @@ func _physics_process(delta: float) -> void:
 			
 		# Keep speed consistent after the bounce
 		velocity = velocity.normalized() * speed
+	
+	if velocity != Vector2(0,0):
+		$Sprite2D.rotation += 0.1
