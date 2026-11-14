@@ -97,35 +97,32 @@ position = Vector2(140, 456)
 position = Vector2(374, 265)
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=780441699]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 389.0
-offset_top = 27.0
-offset_right = 978.0
-offset_bottom = 117.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = 327.5
+offset_top = 16.0
+offset_right = 827.5
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.8604524, 0.92100674, 0.14599797, 1)
 theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 64
 text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="." unique_id=1155554205]
+offset_left = 327.5
+offset_top = 100.0
+offset_right = 827.5
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0.93286914, 0.0011143232, 0.989181, 1)
+theme_override_fonts/font = ExtResource("7_5ah3m")
+theme_override_font_sizes/font_size = 32
+text = "High Score: 0"
+horizontal_alignment = 1
 
 [node name="LoseLabel" type="Label" parent="." unique_id=780441700]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 231.0
-offset_top = 211.0
-offset_right = 894.0
-offset_bottom = 345.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 227.5
+offset_top = 182.5
+offset_right = 927.5
+offset_bottom = 342.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 96
@@ -135,11 +132,11 @@ vertical_alignment = 1
 
 [node name="Reset button" type="Button" parent="." unique_id=966133707]
 custom_minimum_size = Vector2(400, 100)
-custom_maximum_size = Vector2(500, 500)
-offset_left = 342.0
-offset_top = 344.0
-offset_right = 742.0
-offset_bottom = 444.0
+offset_left = 377.5
+offset_top = 362.5
+offset_right = 777.5
+offset_bottom = 462.5
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 64
 text = "Reset"

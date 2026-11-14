@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 signal hit_wall
 
-var speed: float = 400.0
+var speed: float = 500.0
 @export var max_deviation_degrees: float = 5.0 # Small deviation angle for walls
 
 func _ready() -> void:

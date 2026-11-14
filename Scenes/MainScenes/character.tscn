@@ -53,7 +53,7 @@ _data = {
 collision_mask = 14
 script = ExtResource("1_yviun")
 hit_speed_boost = 10.0
-max_ball_speed = 700.0
+max_ball_speed = 800.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310690841]
 scale = Vector2(0.20609984, 0.20609984)
