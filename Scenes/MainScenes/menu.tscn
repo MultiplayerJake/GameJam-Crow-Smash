@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="3_i8xsx"]
 [ext_resource type="Script" uid="uid://bjo2rsnrdshig" path="res://Scripts/exit_button.gd" id="3_nbi7p"]
 [ext_resource type="Script" uid="uid://dn5w378na6rkh" path="res://Scripts/Settings_button.gd" id="4_stngs"]
+[ext_resource type="Script" uid="uid://bh4sal5tf6bly" path="res://Scripts/shop_button.gd" id="5_nxi0e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_black"]
 bg_color = Color(0, 0, 0, 1)
@@ -22,9 +23,9 @@ texture = ExtResource("1_i0lhy")
 custom_minimum_size = Vector2(600, 100)
 custom_maximum_size = Vector2(600, 600)
 offset_left = 277.5
-offset_top = 152.5
+offset_top = 92.5
 offset_right = 877.5
-offset_bottom = 252.5
+offset_bottom = 192.5
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
@@ -32,13 +33,27 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 text = "PLAY"
 script = ExtResource("2_3jjav")
 
+[node name="Shop_button" type="Button" parent="." unique_id=1284977332]
+custom_minimum_size = Vector2(600, 100)
+custom_maximum_size = Vector2(600, 600)
+offset_left = 277.5
+offset_top = 212.5
+offset_right = 877.5
+offset_bottom = 312.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i8xsx")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+text = "SHOP"
+script = ExtResource("5_nxi0e")
+
 [node name="Settings_button" type="Button" parent="." unique_id=1284977331]
 custom_minimum_size = Vector2(600, 100)
 custom_maximum_size = Vector2(600, 600)
 offset_left = 277.5
-offset_top = 272.5
+offset_top = 332.5
 offset_right = 877.5
-offset_bottom = 372.5
+offset_bottom = 432.5
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
@@ -48,10 +63,10 @@ script = ExtResource("4_stngs")
 
 [node name="Exit_button" type="Button" parent="." unique_id=314379669]
 custom_minimum_size = Vector2(600, 100)
-offset_left = 278.0
-offset_top = 393.0
-offset_right = 878.0
-offset_bottom = 493.0
+offset_left = 277.5
+offset_top = 452.5
+offset_right = 877.5
+offset_bottom = 552.5
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64

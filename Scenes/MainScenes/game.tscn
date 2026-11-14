@@ -97,26 +97,24 @@ position = Vector2(140, 456)
 position = Vector2(374, 265)
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=780441699]
-offset_left = 327.5
-offset_top = 16.0
-offset_right = 827.5
-offset_bottom = 96.0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 511.0
+offset_bottom = 94.0
 theme_override_colors/font_color = Color(0.8604524, 0.92100674, 0.14599797, 1)
 theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 64
 text = "Score: 0"
-horizontal_alignment = 1
 
 [node name="HighScoreLabel" type="Label" parent="." unique_id=1155554205]
-offset_left = 327.5
-offset_top = 100.0
-offset_right = 827.5
-offset_bottom = 136.0
+offset_left = 12.0
+offset_top = 94.0
+offset_right = 512.0
+offset_bottom = 139.0
 theme_override_colors/font_color = Color(0.93286914, 0.0011143232, 0.989181, 1)
 theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 32
 text = "High Score: 0"
-horizontal_alignment = 1
 
 [node name="LoseLabel" type="Label" parent="." unique_id=780441700]
 offset_left = 227.5
@@ -141,3 +139,14 @@ theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 64
 text = "Reset"
 script = ExtResource("7_xo65s")
+
+[node name="CoinsLabel" type="Label" parent="." unique_id=1775651057]
+custom_minimum_size = Vector2(400, 50)
+offset_left = 5.0
+offset_top = 140.0
+offset_right = 405.0
+offset_bottom = 190.0
+theme_override_colors/font_color = Color(1, 0.43529412, 0, 1)
+theme_override_fonts/font = ExtResource("7_5ah3m")
+theme_override_font_sizes/font_size = 32
+text = "Coins: 0"

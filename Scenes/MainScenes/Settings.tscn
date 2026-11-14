@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="2_font"]
 [ext_resource type="Script" uid="uid://bv7480d0bppkc" path="res://Scripts/fullscreen_toggle.gd" id="3_4ykyk"]
 [ext_resource type="Script" uid="uid://d1v1j1oge75tf" path="res://Scripts/back_to_menu_settings.gd" id="4_fio71"]
-[ext_resource type="Script" path="res://Scripts/settings.gd" id="5_settings"]
+[ext_resource type="Script" uid="uid://dbto32he5v8c0" path="res://Scripts/settings.gd" id="5_settings"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25dpc"]
 bg_color = Color(0, 0, 0, 1)
@@ -44,9 +44,6 @@ offset_left = 558.0
 offset_top = 215.0
 offset_right = 878.0
 offset_bottom = 255.0
-min_value = 0.0
-max_value = 100.0
-step = 1.0
 value = 70.0
 
 [node name="SfxLabel" type="Label" parent="." unique_id=676603876]
@@ -65,9 +62,6 @@ offset_left = 557.5
 offset_top = 285.0
 offset_right = 877.5
 offset_bottom = 325.0
-min_value = 0.0
-max_value = 100.0
-step = 1.0
 value = 80.0
 
 [node name="FullscreenLabel" type="Label" parent="." unique_id=676603878]
