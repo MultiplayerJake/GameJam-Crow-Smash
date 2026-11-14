@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dvd3lm0qgpgux" path="res://Assets/placeholders/ground.jpg" id="3_giieq"]
 [ext_resource type="PackedScene" uid="uid://drh0m7hti8oyd" path="res://Scenes/MainScenes/character.tscn" id="4_0vvaf"]
 [ext_resource type="PackedScene" uid="uid://dsjg0x61it0q0" path="res://Scenes/MainScenes/ball.tscn" id="6_d22wp"]
+[ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="7_5ah3m"]
 [ext_resource type="Script" uid="uid://csh0h027jivwr" path="res://Scripts/reset_button.gd" id="7_xo65s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddf6i"]
@@ -101,40 +102,45 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 436.0
-offset_top = 4.0
-offset_right = 677.0
-offset_bottom = 92.0
+offset_left = 389.0
+offset_top = 27.0
+offset_right = 978.0
+offset_bottom = 117.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 64
 text = "Score: 0"
 
 [node name="LoseLabel" type="Label" parent="." unique_id=780441700]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 328.0
-offset_top = 226.0
-offset_right = 768.0
-offset_bottom = 358.0
+offset_left = 231.0
+offset_top = 211.0
+offset_right = 894.0
+offset_bottom = 345.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 96
 text = "You Lose!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Reset button" type="Button" parent="." unique_id=966133707]
-visible = false
-offset_left = 452.0
-offset_top = 368.0
-offset_right = 631.0
-offset_bottom = 464.0
+custom_minimum_size = Vector2(400, 100)
+custom_maximum_size = Vector2(500, 500)
+offset_left = 342.0
+offset_top = 344.0
+offset_right = 742.0
+offset_bottom = 444.0
+theme_override_fonts/font = ExtResource("7_5ah3m")
 theme_override_font_sizes/font_size = 64
 text = "Reset"
 script = ExtResource("7_xo65s")
