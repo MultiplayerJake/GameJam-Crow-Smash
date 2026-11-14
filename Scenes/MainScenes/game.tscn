@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ck2fco1jvtwcc" path="res://Assets/placeholders/wall.jpg" id="2_jxumy"]
 [ext_resource type="Texture2D" uid="uid://dvd3lm0qgpgux" path="res://Assets/placeholders/ground.jpg" id="3_giieq"]
 [ext_resource type="PackedScene" uid="uid://drh0m7hti8oyd" path="res://Scenes/MainScenes/character.tscn" id="4_0vvaf"]
-[ext_resource type="Texture2D" uid="uid://cm5e545uc3s86" path="res://Assets/placeholders/line.jpg" id="4_2q06e"]
 [ext_resource type="PackedScene" uid="uid://dsjg0x61it0q0" path="res://Scenes/MainScenes/ball.tscn" id="6_d22wp"]
+[ext_resource type="Script" uid="uid://csh0h027jivwr" path="res://Scripts/reset_button.gd" id="7_xo65s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddf6i"]
 size = Vector2(1192, 108)
@@ -66,26 +66,8 @@ position = Vector2(556, 6)
 scale = Vector2(56.304264, 3.1724045)
 shape = SubResource("RectangleShape2D_f21wm")
 
-[node name="Line2" type="Sprite2D" parent="Blocks" unique_id=1140171923]
-position = Vector2(74, 321)
-rotation = 1.5707964
-scale = Vector2(0.3477604, 0.05346403)
-texture = ExtResource("4_2q06e")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Blocks" unique_id=546642556]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(56, 293)
-shape = SubResource("RectangleShape2D_gvwpj")
-
 [node name="PassThrough" type="StaticBody2D" parent="." unique_id=908692389]
 collision_layer = 8
-
-[node name="Line" type="Sprite2D" parent="PassThrough" unique_id=232394161]
-position = Vector2(732, 321)
-rotation = 1.5707964
-scale = Vector2(0.3477604, 0.05346403)
-texture = ExtResource("4_2q06e")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="PassThrough" unique_id=1172869244]
 light_mask = 2
@@ -93,10 +75,17 @@ visibility_layer = 2
 position = Vector2(751, 293)
 shape = SubResource("RectangleShape2D_gvwpj")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1054492372]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="PassThrough" unique_id=546642556]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(56, 293)
+shape = SubResource("RectangleShape2D_gvwpj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=174950893]
-position = Vector2(-18, 296)
+[node name="Detection area" type="Area2D" parent="." unique_id=1054492372]
+collision_mask = 32
+
+[node name="Detection area detection" type="CollisionShape2D" parent="Detection area" unique_id=174950893]
+position = Vector2(-70, 287)
 scale = Vector2(8.007378, 24.8288)
 shape = SubResource("RectangleShape2D_nflwl")
 
@@ -105,3 +94,47 @@ position = Vector2(140, 456)
 
 [node name="ball" parent="." unique_id=1247335969 instance=ExtResource("6_d22wp")]
 position = Vector2(374, 265)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=780441699]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 436.0
+offset_top = 4.0
+offset_right = 677.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Score: 0"
+
+[node name="LoseLabel" type="Label" parent="." unique_id=780441700]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 328.0
+offset_top = 226.0
+offset_right = 768.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+text = "You Lose!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reset button" type="Button" parent="." unique_id=966133707]
+visible = false
+offset_left = 452.0
+offset_top = 368.0
+offset_right = 631.0
+offset_bottom = 464.0
+theme_override_font_sizes/font_size = 64
+text = "Reset"
+script = ExtResource("7_xo65s")

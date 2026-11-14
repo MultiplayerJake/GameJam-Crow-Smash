@@ -5,10 +5,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddf6i"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1146664732]
-collision_layer = 0
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1146664732 groups=["ball"]]
+collision_layer = 32
 collision_mask = 6
 script = ExtResource("1_edtry")
+max_deviation_degrees = 15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102248325]
 position = Vector2(-0.99999994, 0)
