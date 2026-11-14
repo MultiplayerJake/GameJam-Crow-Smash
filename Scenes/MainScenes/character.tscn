@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://4mfjt5cgb04n" path="res://Scripts/character.gd" id="1_yviun"]
 [ext_resource type="AudioStream" uid="uid://dngfgn0mmpf1h" path="res://Assets/SFX/Swing.mp3" id="3_tfkgr"]
 [ext_resource type="Animation" uid="uid://cktea6f7t4qm2" path="res://Assets/Animations/crow fly.res" id="4_7k7ox"]
-[ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/AssetsFin/bat1.png" id="4_ji4ov"]
-[ext_resource type="Texture2D" uid="uid://cj2kbo6ycnuu4" path="res://Assets/AssetsFin/character/crow1.png" id="5_ji4ov"]
+[ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/AssetsFin/bat/bat1.png" id="4_ji4ov"]
+[ext_resource type="Texture2D" uid="uid://cj2kbo6ycnuu4" path="res://Assets/AssetsFin/crowFolder/crow1.png" id="5_ji4ov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bat"]
 size = Vector2(1806.5754, 400)
@@ -295,9 +295,6 @@ position = Vector2(56, -76)
 rest = Transform2D(1, 0, 0, 1, 56, -76)
 
 [node name="beak" type="Bone2D" parent="Skeleton2D/origin/head" unique_id=1988747283]
-position = Vector2(45, 8)
-rotation = 0.7328266
-scale = Vector2(2.8230977, -1.5930922)
 rest = Transform2D(2.0983703, 1.8885769, 1.065736, -1.1841239, 45, 8)
 
 [node name="wingL1" type="Bone2D" parent="Skeleton2D/origin" unique_id=199795132]
@@ -307,31 +304,23 @@ rest = Transform2D(1, 0, 0, 1, 2, -95)
 [node name="wingL2" type="Bone2D" parent="Skeleton2D/origin/wingL1" unique_id=403786594]
 position = Vector2(-45, -70)
 rotation = -2.2289064
-scale = Vector2(8.047236, 3.3231285)
 rest = Transform2D(-4.921873, -6.3665676, 2.6290915, -2.032501, -45, -70)
 
 [node name="fetherL1" type="Bone2D" parent="Skeleton2D/origin/wingL1" unique_id=1153095974]
 position = Vector2(-71, -28.000008)
 rotation = 2.8533907
-scale = Vector2(6.6792083, -2.3904486)
 rest = Transform2D(-6.403734, 1.898423, 0.6794348, 2.291858, -71, -28.000008)
 
 [node name="tailOrigin" type="Bone2D" parent="Skeleton2D/origin" unique_id=123315016]
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="tail1" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=258010653]
-rotation = 2.5432963
-scale = Vector2(6.025253, -23.294958)
 rest = Transform2D(-4.978645, 3.3936365, 13.120548, 19.248539, 0, 0)
 
 [node name="tail2" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=109375203]
-rotation = -0.70281386
-scale = Vector2(4.235239, 7.1532454)
 rest = Transform2D(3.2315989, -2.7375205, 4.623625, 5.458114, 0, 0)
 
 [node name="tail3" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=105775641]
-rotation = 1.6154522
-scale = Vector2(3.4700484, 6.0463552)
 rest = Transform2D(-0.1549063, 3.4665885, -6.040328, -0.2699152, 0, 0)
 
 [node name="wingR1" type="Bone2D" parent="Skeleton2D/origin" unique_id=1908649707]
@@ -341,13 +330,11 @@ rest = Transform2D(1, 0, 0, 1, 48, -112)
 [node name="wingR2" type="Bone2D" parent="Skeleton2D/origin/wingR1" unique_id=731735518]
 position = Vector2(78, -64)
 rotation = -1.1245983
-scale = Vector2(6.4873624, 0.81378156)
 rest = Transform2D(2.7995496, -5.8522124, 0.73410773, 0.35117847, 78, -64)
 
 [node name="fetherR1" type="Bone2D" parent="Skeleton2D/origin/wingR1" unique_id=1167859785]
 position = Vector2(74, -39.000004)
 rotation = 0.3715999
-scale = Vector2(6.487362, 0.81378156)
 rest = Transform2D(6.044584, 2.355604, -0.29548946, 0.75823903, 74, -39.000004)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075351182]

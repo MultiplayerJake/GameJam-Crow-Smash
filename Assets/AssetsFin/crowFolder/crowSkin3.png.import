@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1goi41hotgr8"
-path="res://.godot/imported/crow2.png-891603545ee9a7d6e30b07c927204952.ctex"
+uid="uid://d1gq7fkjwlwxt"
+path="res://.godot/imported/crowSkin3.png-5d3b4da4db9414859f3f1147f99337e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/AssetsFin/character/crow2.png"
-dest_files=["res://.godot/imported/crow2.png-891603545ee9a7d6e30b07c927204952.ctex"]
+source_file="res://Assets/AssetsFin/crowFolder/crowSkin3.png"
+dest_files=["res://.godot/imported/crowSkin3.png-5d3b4da4db9414859f3f1147f99337e0.ctex"]
 
 [params]
 
