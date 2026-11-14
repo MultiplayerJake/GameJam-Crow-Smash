@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4mofrg08uyvg"]
 
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_i0lhy"]
+[ext_resource type="Script" uid="uid://bhhk8lxcse0fn" path="res://Scenes/MainScenes/Play_button.gd" id="2_3jjav"]
 
 [node name="Menu" type="Node2D" unique_id=164902082]
 
@@ -8,3 +9,18 @@
 position = Vector2(577.5, 322.49997)
 scale = Vector2(0.602, 0.6)
 texture = ExtResource("1_i0lhy")
+
+[node name="Button" type="Button" parent="." unique_id=1745499528]
+anchors_preset = -1
+offset_left = 470.5
+offset_top = 240.5
+offset_right = 632.5
+offset_bottom = 336.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(79.5, 48.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 64
+text = "PLAY"
+script = ExtResource("2_3jjav")
