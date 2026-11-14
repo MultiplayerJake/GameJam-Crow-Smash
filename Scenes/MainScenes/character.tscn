@@ -276,6 +276,7 @@ max_ball_speed = 800.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1993744766]
 stream = ExtResource("3_tfkgr")
+bus = &"SFX"
 
 [node name="Bat" type="Sprite2D" parent="." unique_id=106400254]
 position = Vector2(27.000008, 16)

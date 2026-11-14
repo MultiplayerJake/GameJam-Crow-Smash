@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://bhhk8lxcse0fn" path="res://Scripts/Play_button.gd" id="2_3jjav"]
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="3_i8xsx"]
 [ext_resource type="Script" uid="uid://bjo2rsnrdshig" path="res://Scripts/exit_button.gd" id="3_nbi7p"]
+[ext_resource type="Script" uid="uid://dn5w378na6rkh" path="res://Scripts/Settings_button.gd" id="4_stngs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_black"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Menu" type="Node2D" unique_id=164902082]
 script = ExtResource("1_wo160")
@@ -18,21 +22,39 @@ texture = ExtResource("1_i0lhy")
 custom_minimum_size = Vector2(600, 100)
 custom_maximum_size = Vector2(600, 600)
 offset_left = 277.5
-offset_top = 212.5
+offset_top = 152.5
 offset_right = 877.5
-offset_bottom = 312.5
+offset_bottom = 252.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 text = "PLAY"
 script = ExtResource("2_3jjav")
 
-[node name="Exit_button" type="Button" parent="." unique_id=314379669]
+[node name="Settings_button" type="Button" parent="." unique_id=1284977331]
 custom_minimum_size = Vector2(600, 100)
+custom_maximum_size = Vector2(600, 600)
 offset_left = 277.5
-offset_top = 332.5
+offset_top = 272.5
 offset_right = 877.5
-offset_bottom = 432.5
+offset_bottom = 372.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+text = "SETTINGS"
+script = ExtResource("4_stngs")
+
+[node name="Exit_button" type="Button" parent="." unique_id=314379669]
+custom_minimum_size = Vector2(600, 100)
+offset_left = 278.0
+offset_top = 393.0
+offset_right = 878.0
+offset_bottom = 493.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_i8xsx")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 text = "EXIT"
 script = ExtResource("3_nbi7p")
