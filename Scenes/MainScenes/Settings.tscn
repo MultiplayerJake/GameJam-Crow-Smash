@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://ca7bhnmpj6rbd"]
+
+[ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_bg"]
+[ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="2_font"]
+[ext_resource type="Script" uid="uid://bv7480d0bppkc" path="res://Scripts/fullscreen_toggle.gd" id="3_4ykyk"]
+[ext_resource type="Script" uid="uid://d1v1j1oge75tf" path="res://Scripts/back_to_menu_settings.gd" id="4_fio71"]
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="5_settings"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25dpc"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Settings" type="Node2D" unique_id=676603871]
+script = ExtResource("5_settings")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=676603872]
+position = Vector2(577.5, 322.49997)
+scale = Vector2(0.602, 0.6)
+texture = ExtResource("1_bg")
+
+[node name="Title" type="Label" parent="." unique_id=676603873]
+offset_left = 177.5
+offset_top = 40.0
+offset_right = 977.5
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.93286914, 0.0011143232, 0.989181, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 96
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="." unique_id=676603874]
+offset_left = 277.5
+offset_top = 210.0
+offset_right = 527.5
+offset_bottom = 260.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="." unique_id=676603875]
+offset_left = 558.0
+offset_top = 215.0
+offset_right = 878.0
+offset_bottom = 255.0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 70.0
+
+[node name="SfxLabel" type="Label" parent="." unique_id=676603876]
+offset_left = 277.5
+offset_top = 280.0
+offset_right = 527.5
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "SFX"
+vertical_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="." unique_id=676603877]
+offset_left = 557.5
+offset_top = 285.0
+offset_right = 877.5
+offset_bottom = 325.0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 80.0
+
+[node name="FullscreenLabel" type="Label" parent="." unique_id=676603878]
+offset_left = 278.0
+offset_top = 350.0
+offset_right = 580.0
+offset_bottom = 406.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "Fullscreen"
+vertical_alignment = 1
+
+[node name="FullscreenToggle" type="CheckButton" parent="." unique_id=676603879]
+offset_left = 558.0
+offset_top = 350.0
+offset_right = 878.0
+offset_bottom = 400.0
+script = ExtResource("3_4ykyk")
+
+[node name="Back" type="Button" parent="." unique_id=676603880]
+custom_minimum_size = Vector2(400, 100)
+offset_left = 378.0
+offset_top = 470.0
+offset_right = 778.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_25dpc")
+text = "BACK"
+script = ExtResource("4_fio71")

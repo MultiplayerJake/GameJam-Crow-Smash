@@ -13,7 +13,7 @@
 size = Vector2(1192, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa0de"]
-size = Vector2(214.33, 647)
+size = Vector2(214.33, 657.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f21wm"]
 
@@ -54,7 +54,7 @@ scale = Vector2(0.41487676, -2.0803041)
 texture = ExtResource("2_jxumy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1377827064]
-position = Vector2(1069, 319)
+position = Vector2(1069, 324.25)
 shape = SubResource("RectangleShape2D_wa0de")
 
 [node name="Blocks" type="StaticBody2D" parent="." unique_id=908692388 groups=["blocks"]]
