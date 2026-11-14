@@ -17,22 +17,28 @@ func _ready() -> void:
 	_load_coins()
 	_load_skins()
 	_update_coins_label()
-	for i in range(1, 6):
+	for i in range(1, 7):
 		var node_name = "Item" + str(i)
 		var btn = get_node(node_name) as Button
 		
 		if btn:
 			# Successfully found the button from the scene!
 			print("Loaded: ", btn.name)
+			var product: int = btn.get_meta("ProductID", 0)
+			var kind: String = btn.get_meta("Kind", "")
 			var price_label = btn.get_node_or_null("Price") as Label
 			if price_label:
 				btn.set_meta("price", int(price_label.text))
 			
 			var image = btn.get_node_or_null("Image") as TextureRect
 			if image:
-				var product: int = btn.get_meta("ProductID", 0)
-				var kind: String = btn.get_meta("Kind", "")
 				image.texture = SkinData.get_texture(kind, product)
+			
+			if not SkinData.has_skin(kind, product):
+				btn.disabled = true
+				if image:
+					image.modulate = Color(1, 1, 1, 0.25)
+				print("Warning: no texture for ", kind, " skin ", product)
 			
 			# Use a lambda to pass both the index 'i' and the button reference 'btn'
 			btn.pressed.connect(func(): _on_button_pressed(i, btn))
@@ -87,6 +93,11 @@ func _update_item_status(btn: Button) -> void:
 		return
 	var product: int = btn.get_meta("ProductID", 0)
 	var kind: String = btn.get_meta("Kind", "")
+	if not SkinData.has_skin(kind, product):
+		label.text = "N/A"
+		label.add_theme_font_size_override("font_size", STATUS_FONT_SIZE)
+		label.add_theme_color_override("font_color", Color(1, 0.4, 0.4))
+		return
 	if SkinData.is_owned(kind, product):
 		label.add_theme_font_size_override("font_size", STATUS_FONT_SIZE)
 		if SkinData.is_equipped(kind, product):
@@ -102,7 +113,7 @@ func _update_item_status(btn: Button) -> void:
 
 
 func _refresh_statuses() -> void:
-	for i in range(1, 6):
+	for i in range(1, 7):
 		var btn = get_node_or_null("Item" + str(i)) as Button
 		if btn:
 			_update_item_status(btn)
@@ -123,6 +134,9 @@ func _on_button_pressed(button_id: int, clicked_button: Button) -> void:
 	
 	if product <= 0 or (kind != SkinData.KIND_BAT and kind != SkinData.KIND_CROW):
 		print("Invalid item data (kind=", kind, ", product=", product, ")")
+		return
+	if not SkinData.has_skin(kind, product):
+		print("Invalid item data (no texture for kind=", kind, ", product=", product, ")")
 		return
 	
 	if SkinData.is_owned(kind, product):
