@@ -56,7 +56,7 @@ shape = SubResource("RectangleShape2D_ddf6i")
 collision_layer = 2
 
 [node name="Wall" type="Sprite2D" parent="Walls" unique_id=2089387806]
-position = Vector2(1107, 345.00003)
+position = Vector2(1107.0001, 321)
 scale = Vector2(0.6642013, 0.6642013)
 texture = ExtResource("5_1akeu")
 
