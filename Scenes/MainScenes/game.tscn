@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://34o118j5nof2"]
 
 [ext_resource type="Script" uid="uid://enemvwk00yd8" path="res://Scripts/game.gd" id="1_2q06e"]
-[ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_giieq"]
+[ext_resource type="Texture2D" uid="uid://dvm42c3tlj46t" path="res://Assets/AssetsFin/backround/backroundSky1.png" id="2_qp21n"]
 [ext_resource type="Texture2D" uid="uid://brxrk8vctha23" path="res://Assets/AssetsFin/backround/backroundGrass.png" id="3_1akeu"]
+[ext_resource type="Texture2D" uid="uid://ccyeepa7k5se8" path="res://Assets/AssetsFin/backround/cloud1.png" id="3_cbecx"]
 [ext_resource type="PackedScene" uid="uid://drh0m7hti8oyd" path="res://Scenes/MainScenes/character.tscn" id="4_0vvaf"]
 [ext_resource type="Texture2D" uid="uid://ci1b5tvydnxqs" path="res://Assets/AssetsFin/backround/forgroundGrass.png" id="4_aby4k"]
+[ext_resource type="Texture2D" uid="uid://bu2fpb37ka2mi" path="res://Assets/AssetsFin/backround/cloud2.png" id="4_ik8wt"]
 [ext_resource type="Texture2D" uid="uid://b4fw4wl4q3mxt" path="res://Assets/AssetsFin/backround/backgroundWall.png" id="5_1akeu"]
 [ext_resource type="PackedScene" uid="uid://dsjg0x61it0q0" path="res://Scenes/MainScenes/ball.tscn" id="6_d22wp"]
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="7_5ah3m"]
@@ -25,12 +27,26 @@ size = Vector2(46, 644)
 size = Vector2(20, 24.660393)
 
 [node name="Game" type="Node2D" unique_id=1693405210]
+position = Vector2(-10, 3)
 script = ExtResource("1_2q06e")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1942340858]
-position = Vector2(577.5, 322.49997)
-scale = Vector2(0.602, 0.6)
-texture = ExtResource("1_giieq")
+z_index = -1
+scale = Vector2(0.53846157, 0.53846157)
+texture = ExtResource("2_qp21n")
+centered = false
+
+[node name="cloud1" type="Sprite2D" parent="." unique_id=295644674]
+position = Vector2(1041.9999, 0)
+scale = Vector2(0.4535112, 0.4535112)
+texture = ExtResource("3_cbecx")
+centered = false
+
+[node name="cloud2" type="Sprite2D" parent="." unique_id=1235280687]
+position = Vector2(685, 0)
+scale = Vector2(0.4535112, 0.4535112)
+texture = ExtResource("4_ik8wt")
+centered = false
 
 [node name="Grass" type="StaticBody2D" parent="." unique_id=387530059 groups=["blocks"]]
 collision_layer = 4
