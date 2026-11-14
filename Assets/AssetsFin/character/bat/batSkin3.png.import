@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://07ej5ua7ma0t"
-path="res://.godot/imported/BatSkin3.png-64dfbea8a722a6bfd9e91e37d4954ee2.ctex"
+uid="uid://qewpxxkeiq8k"
+path="res://.godot/imported/batSkin3.png-aeebcb9e3c8fd674474137ed24c40292.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/AssetsFin/character/bat/BatSkin3.png"
-dest_files=["res://.godot/imported/BatSkin3.png-64dfbea8a722a6bfd9e91e37d4954ee2.ctex"]
+source_file="res://Assets/AssetsFin/character/bat/batSkin3.png"
+dest_files=["res://.godot/imported/batSkin3.png-aeebcb9e3c8fd674474137ed24c40292.ctex"]
 
 [params]
 

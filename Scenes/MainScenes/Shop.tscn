@@ -20,7 +20,7 @@ texture = ExtResource("1_bg")
 [node name="Item1" type="Button" parent="." unique_id=1944360331]
 offset_left = 37.5
 offset_top = 120.0
-offset_right = 237.5
+offset_right = 202.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 metadata/ProductID = 1
@@ -28,9 +28,9 @@ metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item1" unique_id=1944360332]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 7.5
 offset_top = 15.0
-offset_right = 180.0
+offset_right = 157.5
 offset_bottom = 175.0
 mouse_filter = 2
 texture = ExtResource("3_bat")
@@ -40,7 +40,7 @@ stretch_mode = 5
 [node name="Price" type="Label" parent="Item1" unique_id=1944360333]
 layout_mode = 0
 offset_top = 180.0
-offset_right = 200.0
+offset_right = 165.0
 offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -50,9 +50,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Item2" type="Button" parent="." unique_id=1944360334]
-offset_left = 257.5
+offset_left = 220.5
 offset_top = 120.0
-offset_right = 457.5
+offset_right = 385.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 metadata/ProductID = 2
@@ -60,9 +60,9 @@ metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item2" unique_id=1944360335]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 7.5
 offset_top = 15.0
-offset_right = 180.0
+offset_right = 157.5
 offset_bottom = 175.0
 mouse_filter = 2
 texture = ExtResource("3_bat")
@@ -72,7 +72,7 @@ stretch_mode = 5
 [node name="Price" type="Label" parent="Item2" unique_id=1944360336]
 layout_mode = 0
 offset_top = 180.0
-offset_right = 200.0
+offset_right = 165.0
 offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -82,9 +82,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Item3" type="Button" parent="." unique_id=1944360337]
-offset_left = 477.5
+offset_left = 403.5
 offset_top = 120.0
-offset_right = 677.5
+offset_right = 568.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 metadata/ProductID = 3
@@ -92,9 +92,9 @@ metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item3" unique_id=1944360338]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 7.5
 offset_top = 15.0
-offset_right = 180.0
+offset_right = 157.5
 offset_bottom = 175.0
 mouse_filter = 2
 texture = ExtResource("3_bat")
@@ -104,7 +104,7 @@ stretch_mode = 5
 [node name="Price" type="Label" parent="Item3" unique_id=1944360339]
 layout_mode = 0
 offset_top = 180.0
-offset_right = 200.0
+offset_right = 165.0
 offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -114,9 +114,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Item4" type="Button" parent="." unique_id=1944360340]
-offset_left = 697.5
+offset_left = 586.5
 offset_top = 120.0
-offset_right = 897.5
+offset_right = 751.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 metadata/ProductID = 1
@@ -124,9 +124,9 @@ metadata/Kind = "bat"
 
 [node name="Image" type="TextureRect" parent="Item4" unique_id=1944360341]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 7.5
 offset_top = 15.0
-offset_right = 180.0
+offset_right = 157.5
 offset_bottom = 175.0
 mouse_filter = 2
 texture = ExtResource("3_bat")
@@ -136,7 +136,7 @@ stretch_mode = 5
 [node name="Price" type="Label" parent="Item4" unique_id=1944360342]
 layout_mode = 0
 offset_top = 180.0
-offset_right = 200.0
+offset_right = 165.0
 offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
@@ -146,9 +146,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Item5" type="Button" parent="." unique_id=1944360343]
-offset_left = 917.5
+offset_left = 769.5
 offset_top = 120.0
-offset_right = 1117.5
+offset_right = 934.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 metadata/ProductID = 2
@@ -156,9 +156,9 @@ metadata/Kind = "bat"
 
 [node name="Image" type="TextureRect" parent="Item5" unique_id=1944360344]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 7.5
 offset_top = 15.0
-offset_right = 180.0
+offset_right = 157.5
 offset_bottom = 175.0
 mouse_filter = 2
 texture = ExtResource("3_bat")
@@ -168,12 +168,44 @@ stretch_mode = 5
 [node name="Price" type="Label" parent="Item5" unique_id=1944360345]
 layout_mode = 0
 offset_top = 180.0
-offset_right = 200.0
+offset_right = 165.0
 offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
 text = "500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item6" type="Button" parent="." unique_id=1944360347]
+offset_left = 952.5
+offset_top = 120.0
+offset_right = 1117.5
+offset_bottom = 370.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+metadata/ProductID = 3
+metadata/Kind = "bat"
+
+[node name="Image" type="TextureRect" parent="Item6" unique_id=1944360348]
+layout_mode = 0
+offset_left = 7.5
+offset_top = 15.0
+offset_right = 157.5
+offset_bottom = 175.0
+mouse_filter = 2
+texture = ExtResource("3_bat")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Price" type="Label" parent="Item6" unique_id=1944360349]
+layout_mode = 0
+offset_top = 180.0
+offset_right = 165.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "750"
 horizontal_alignment = 1
 vertical_alignment = 1
 
