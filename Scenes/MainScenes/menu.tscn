@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://d4mofrg08uyvg"]
 
+[ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_i0lhy"]
+
 [node name="Menu" type="Node2D" unique_id=164902082]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=504640886]
+position = Vector2(577.5, 322.49997)
+scale = Vector2(0.602, 0.6)
+texture = ExtResource("1_i0lhy")
