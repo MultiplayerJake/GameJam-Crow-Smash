@@ -1,7 +1,6 @@
 extends Node
 
-const SAVE_DIR := "res://Saves"
-const SAVE_PATH := "res://Saves/settings.cfg"
+const SAVE_FILE := "settings.cfg"
 const SAVE_DELAY := 0.25
 
 var music_volume: float = 0.7
@@ -49,15 +48,14 @@ func _apply_bus(bus_name: String, value: float) -> void:
 
 func _load_settings() -> void:
 	var config := ConfigFile.new()
-	if config.load(SAVE_PATH) != OK:
+	if config.load(SavePaths.file(SAVE_FILE)) != OK:
 		return
 	music_volume = clampf(float(config.get_value("audio", "music", music_volume)), 0.0, 1.0)
 	sfx_volume = clampf(float(config.get_value("audio", "sfx", sfx_volume)), 0.0, 1.0)
 
 
 func _save_settings() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(SAVE_DIR))
 	var config := ConfigFile.new()
 	config.set_value("audio", "music", music_volume)
 	config.set_value("audio", "sfx", sfx_volume)
-	config.save(SAVE_PATH)
+	config.save(SavePaths.file(SAVE_FILE))

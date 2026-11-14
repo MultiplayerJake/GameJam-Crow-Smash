@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_bg"]
 [ext_resource type="Script" uid="uid://dg8jupe74dw1a" path="res://Scripts/shop.gd" id="1_cl1qf"]
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="2_font"]
-[ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/AssetsFin/bat1.png" id="3_bat"]
+[ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/AssetsFin/character/bat/batSkin0.png" id="3_bat"]
 [ext_resource type="Script" uid="uid://s0n6ydv13hne" path="res://Scripts/back_to_menu_shop.gd" id="4_exit"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_black"]
@@ -23,6 +23,8 @@ offset_top = 120.0
 offset_right = 237.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+metadata/ProductID = 1
+metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item1" unique_id=1944360332]
 layout_mode = 0
@@ -53,6 +55,8 @@ offset_top = 120.0
 offset_right = 457.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+metadata/ProductID = 2
+metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item2" unique_id=1944360335]
 layout_mode = 0
@@ -83,6 +87,8 @@ offset_top = 120.0
 offset_right = 677.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+metadata/ProductID = 3
+metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item3" unique_id=1944360338]
 layout_mode = 0
@@ -113,6 +119,8 @@ offset_top = 120.0
 offset_right = 897.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+metadata/ProductID = 4
+metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item4" unique_id=1944360341]
 layout_mode = 0
@@ -143,6 +151,8 @@ offset_top = 120.0
 offset_right = 1117.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+metadata/ProductID = 5
+metadata/Kind = "crow"
 
 [node name="Image" type="TextureRect" parent="Item5" unique_id=1944360344]
 layout_mode = 0
@@ -179,3 +189,27 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 text = "EXIT"
 script = ExtResource("4_exit")
+
+[node name="CoinsLabel" type="Label" parent="." unique_id=190573664]
+offset_left = 880.0
+offset_top = 20.0
+offset_right = 1117.5
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(1, 0.43529412, 0, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 40
+text = "Coins: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Default" type="Button" parent="." unique_id=1237021122]
+custom_minimum_size = Vector2(250, 100)
+offset_left = 37.5
+offset_top = 430.0
+offset_right = 237.5
+offset_bottom = 530.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_black")
+text = "DEFAULT"

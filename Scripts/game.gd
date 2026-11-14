@@ -6,8 +6,6 @@ extends Node2D
 @onready var high_score_label: Label = $HighScoreLabel
 @onready var coins_label: Label = $CoinsLabel
 
-const HIGH_SCORE_PATH := "res://Saves/high_score.save"
-const COINS_PATH := "res://Saves/coins.save"
 var high_score: int = 0
 var coins: int = 0
 var menu_scene = "res://Scenes/MainScenes/menu.tscn"
@@ -28,31 +26,31 @@ func _ready() -> void:
 
 
 func _load_high_score() -> void:
-	if not FileAccess.file_exists(HIGH_SCORE_PATH):
+	var path := SavePaths.file("high_score.save")
+	if not FileAccess.file_exists(path):
 		return
-	var f := FileAccess.open(HIGH_SCORE_PATH, FileAccess.READ)
+	var f := FileAccess.open(path, FileAccess.READ)
 	if f:
 		high_score = int(f.get_as_text().strip_edges())
 
 
 func _load_coins() -> void:
-	if not FileAccess.file_exists(COINS_PATH):
+	var path := SavePaths.file("coins.save")
+	if not FileAccess.file_exists(path):
 		return
-	var f := FileAccess.open(COINS_PATH, FileAccess.READ)
+	var f := FileAccess.open(path, FileAccess.READ)
 	if f:
 		coins = int(f.get_as_text().strip_edges())
 
 
 func _save_high_score() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://Saves"))
-	var f := FileAccess.open(HIGH_SCORE_PATH, FileAccess.WRITE)
+	var f := FileAccess.open(SavePaths.file("high_score.save"), FileAccess.WRITE)
 	if f:
 		f.store_string(str(high_score))
 
 
 func _save_coins() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://Saves"))
-	var f := FileAccess.open(COINS_PATH, FileAccess.WRITE)
+	var f := FileAccess.open(SavePaths.file("coins.save"), FileAccess.WRITE)
 	if f:
 		f.store_string(str(coins))
 

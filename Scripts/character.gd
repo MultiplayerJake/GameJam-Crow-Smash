@@ -14,6 +14,9 @@ var swing_hit := false
 func _ready() -> void:
 	$AnimationPlayer2.animation_finished.connect(_on_animation_finished)
 	$AnimationPlayer.speed_scale = 2
+	SkinData.load_skins()
+	$Bat1.texture = SkinData.get_texture(SkinData.KIND_BAT, SkinData.equipped_bat)
+	$Polygon2D.texture = SkinData.get_texture(SkinData.KIND_CROW, SkinData.equipped_crow)
 
 
 func _physics_process(delta: float) -> void:
