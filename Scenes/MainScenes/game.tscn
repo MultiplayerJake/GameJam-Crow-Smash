@@ -1,19 +1,22 @@
-[gd_scene format=3 uid="uid://34o118j5nof2"]
+[gd_scene format=3 uid="uid://b47tam7kp8qy2"]
 
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_giieq"]
 [ext_resource type="Texture2D" uid="uid://ck2fco1jvtwcc" path="res://Assets/placeholders/wall.jpg" id="2_jxumy"]
 [ext_resource type="Texture2D" uid="uid://dvd3lm0qgpgux" path="res://Assets/placeholders/ground.jpg" id="3_giieq"]
-[ext_resource type="Texture2D" uid="uid://w1ye78t0hh45" path="res://icon.svg" id="4_li8oe"]
+[ext_resource type="PackedScene" uid="uid://drh0m7hti8oyd" path="res://Scenes/MainScenes/character.tscn" id="4_0vvaf"]
+[ext_resource type="Texture2D" uid="uid://cm5e545uc3s86" path="res://Assets/placeholders/line.jpg" id="4_2q06e"]
+[ext_resource type="PackedScene" uid="uid://dsjg0x61it0q0" path="res://Scenes/MainScenes/ball.tscn" id="6_d22wp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddf6i"]
 size = Vector2(18.69703, 15.109209)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvwpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa0de"]
 size = Vector2(22.965103, 14.868258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f21wm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvwpj"]
+size = Vector2(46, 534)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nflwl"]
 
@@ -37,16 +40,6 @@ rotation = -3.1415925
 scale = Vector2(63.753437, -7.147952)
 shape = SubResource("RectangleShape2D_ddf6i")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2026067026]
-position = Vector2(371, 238)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1547461545]
-scale = Vector2(6.5349994, 6.373278)
-shape = SubResource("RectangleShape2D_gvwpj")
-
-[node name="Icon" type="Sprite2D" parent="RigidBody2D" unique_id=1299699572]
-texture = ExtResource("4_li8oe")
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=908692387]
 
 [node name="Wall" type="Sprite2D" parent="StaticBody2D2" unique_id=2089387806]
@@ -56,7 +49,7 @@ scale = Vector2(0.41487676, -2.0803041)
 texture = ExtResource("2_jxumy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1377827064]
-position = Vector2(1068.8363, 317.5)
+position = Vector2(1069, 319)
 rotation = -3.1415925
 scale = Vector2(9.332742, 43.515522)
 shape = SubResource("RectangleShape2D_wa0de")
@@ -66,9 +59,35 @@ position = Vector2(556, 6)
 scale = Vector2(56.304264, 3.1724045)
 shape = SubResource("RectangleShape2D_f21wm")
 
+[node name="Line" type="Sprite2D" parent="StaticBody2D2" unique_id=232394161]
+position = Vector2(732, 321)
+rotation = 1.5707964
+scale = Vector2(0.3477604, 0.05346403)
+texture = ExtResource("4_2q06e")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1172869244]
+position = Vector2(751, 293)
+shape = SubResource("RectangleShape2D_gvwpj")
+
+[node name="Line2" type="Sprite2D" parent="StaticBody2D2" unique_id=1140171923]
+position = Vector2(74, 321)
+rotation = 1.5707964
+scale = Vector2(0.3477604, 0.05346403)
+texture = ExtResource("4_2q06e")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D2" unique_id=546642556]
+position = Vector2(56, 293)
+shape = SubResource("RectangleShape2D_gvwpj")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1054492372]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=174950893]
 position = Vector2(-18, 296)
 scale = Vector2(8.007378, 24.8288)
 shape = SubResource("RectangleShape2D_nflwl")
+
+[node name="character" parent="." unique_id=710158590 instance=ExtResource("4_0vvaf")]
+position = Vector2(140, 456)
+
+[node name="ball" parent="." unique_id=1247335969 instance=ExtResource("6_d22wp")]
+position = Vector2(374, 265)
