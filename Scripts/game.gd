@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Esc"):
+	if event.is_action_pressed("ui_cancel"):
 		var error = get_tree().change_scene_to_file(menu_scene)
 		if error != OK:
 			print("Failed to change scene, error code: ", error)
