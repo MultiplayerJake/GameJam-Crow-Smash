@@ -9,9 +9,12 @@
 radius = 24.0
 height = 100.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bat"]
+size = Vector2(1700, 400)
+
 [sub_resource type="Animation" id="Animation_iuy1f"]
 resource_name = "BatSwing"
-length = 0.22999999999999998
+length = 0.23
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,7 +29,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_7k7ox"]
-length = 0.001
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,10 +37,10 @@ tracks/0/path = NodePath("Bat:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-0.7320601]
+"values": [-0.7320601, 1.3173589]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ji4ov"]
@@ -49,6 +52,8 @@ _data = {
 [node name="character" type="CharacterBody2D" unique_id=710158590]
 collision_mask = 14
 script = ExtResource("1_yviun")
+hit_speed_boost = 10.0
+max_ball_speed = 700.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310690841]
 scale = Vector2(0.20609984, 0.20609984)
@@ -68,6 +73,14 @@ rotation = -0.7320601
 scale = Vector2(0.099666454, 0.099666454)
 texture = ExtResource("4_iuy1f")
 offset = Vector2(934, -318)
+
+[node name="BatHitbox" type="Area2D" parent="Bat" unique_id=1813379536]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/BatHitbox" unique_id=534628778]
+position = Vector2(934, -318)
+shape = SubResource("RectangleShape2D_bat")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2107750829]
 libraries/ = SubResource("AnimationLibrary_ji4ov")

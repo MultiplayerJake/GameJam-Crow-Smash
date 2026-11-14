@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal hit_wall
+
 var speed: float = 400.0
 @export var max_deviation_degrees: float = 5.0 # Small deviation angle for walls
 
@@ -20,6 +22,7 @@ func _physics_process(delta: float) -> void:
 		
 		# 2. Check which type of object was hit using groups
 		if collider.is_in_group("walls"):
+			hit_wall.emit()
 			# Add a small random deviation (converted from degrees to radians)
 			var random_deg = randf_range(-max_deviation_degrees, max_deviation_degrees)
 			velocity = velocity.rotated(deg_to_rad(random_deg))
