@@ -17,16 +17,10 @@ texture = ExtResource("1_i0lhy")
 [node name="Play_button" type="Button" parent="." unique_id=1745499528]
 custom_minimum_size = Vector2(600, 100)
 custom_maximum_size = Vector2(600, 600)
-anchors_preset = -1
-offset_left = 295.0
-offset_top = 159.0
-offset_right = 895.0
-offset_bottom = 259.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(1, 1)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+offset_left = 277.5
+offset_top = 212.5
+offset_right = 877.5
+offset_bottom = 312.5
 theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
 text = "PLAY"
@@ -34,10 +28,10 @@ script = ExtResource("2_3jjav")
 
 [node name="Exit_button" type="Button" parent="." unique_id=314379669]
 custom_minimum_size = Vector2(600, 100)
-offset_left = 295.0
-offset_top = 283.0
-offset_right = 895.0
-offset_bottom = 383.0
+offset_left = 277.5
+offset_top = 332.5
+offset_right = 877.5
+offset_bottom = 432.5
 theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
 text = "EXIT"
