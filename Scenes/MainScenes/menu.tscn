@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_i0lhy"]
 [ext_resource type="Script" uid="uid://cd2qq15ircgai" path="res://Scripts/menu.gd" id="1_wo160"]
 [ext_resource type="Script" uid="uid://bhhk8lxcse0fn" path="res://Scripts/Play_button.gd" id="2_3jjav"]
+[ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="3_i8xsx"]
 [ext_resource type="Script" uid="uid://bjo2rsnrdshig" path="res://Scripts/exit_button.gd" id="3_nbi7p"]
 
 [node name="Menu" type="Node2D" unique_id=164902082]
@@ -14,26 +15,30 @@ scale = Vector2(0.602, 0.6)
 texture = ExtResource("1_i0lhy")
 
 [node name="Play_button" type="Button" parent="." unique_id=1745499528]
+custom_minimum_size = Vector2(600, 100)
+custom_maximum_size = Vector2(600, 600)
 anchors_preset = -1
-offset_left = 483.0
-offset_top = 216.0
-offset_right = 645.0
-offset_bottom = 312.0
+offset_left = 295.0
+offset_top = 159.0
+offset_right = 895.0
+offset_bottom = 259.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1, 1)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
 text = "PLAY"
 script = ExtResource("2_3jjav")
 
 [node name="Exit_button" type="Button" parent="." unique_id=314379669]
-custom_minimum_size = Vector2(100, 0)
-offset_left = 484.0
-offset_top = 322.0
-offset_right = 648.0
-offset_bottom = 418.0
+custom_minimum_size = Vector2(600, 100)
+offset_left = 295.0
+offset_top = 283.0
+offset_right = 895.0
+offset_bottom = 383.0
+theme_override_fonts/font = ExtResource("3_i8xsx")
 theme_override_font_sizes/font_size = 64
 text = "EXIT"
 script = ExtResource("3_nbi7p")
