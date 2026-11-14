@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://enemvwk00yd8" path="res://Scripts/game.gd" id="1_2q06e"]
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_giieq"]
-[ext_resource type="Texture2D" uid="uid://ck2fco1jvtwcc" path="res://Assets/placeholders/wall.jpg" id="2_jxumy"]
 [ext_resource type="Texture2D" uid="uid://brxrk8vctha23" path="res://Assets/AssetsFin/backround/backroundGrass.png" id="3_1akeu"]
 [ext_resource type="PackedScene" uid="uid://drh0m7hti8oyd" path="res://Scenes/MainScenes/character.tscn" id="4_0vvaf"]
 [ext_resource type="Texture2D" uid="uid://ci1b5tvydnxqs" path="res://Assets/AssetsFin/backround/forgroundGrass.png" id="4_aby4k"]
+[ext_resource type="Texture2D" uid="uid://b4fw4wl4q3mxt" path="res://Assets/AssetsFin/backround/backgroundWall.png" id="5_1akeu"]
 [ext_resource type="PackedScene" uid="uid://dsjg0x61it0q0" path="res://Scenes/MainScenes/ball.tscn" id="6_d22wp"]
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="7_5ah3m"]
 [ext_resource type="Script" uid="uid://csh0h027jivwr" path="res://Scripts/reset_button.gd" id="7_xo65s"]
@@ -14,7 +14,7 @@
 size = Vector2(1192, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa0de"]
-size = Vector2(214.33, 657.5)
+size = Vector2(132.16501, 657.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f21wm"]
 
@@ -56,13 +56,12 @@ shape = SubResource("RectangleShape2D_ddf6i")
 collision_layer = 2
 
 [node name="Wall" type="Sprite2D" parent="Walls" unique_id=2089387806]
-position = Vector2(1062, 321)
-rotation = -3.1415925
-scale = Vector2(0.41487676, -2.0803041)
-texture = ExtResource("2_jxumy")
+position = Vector2(1107.0001, 321)
+scale = Vector2(0.6642013, 0.6642013)
+texture = ExtResource("5_1akeu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1377827064]
-position = Vector2(1069, 324.25)
+position = Vector2(1110.0825, 324.25)
 shape = SubResource("RectangleShape2D_wa0de")
 
 [node name="Blocks" type="StaticBody2D" parent="." unique_id=908692388 groups=["blocks"]]
