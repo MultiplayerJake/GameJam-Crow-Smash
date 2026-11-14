@@ -3,14 +3,15 @@
 [ext_resource type="Script" uid="uid://enemvwk00yd8" path="res://Scripts/game.gd" id="1_2q06e"]
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_giieq"]
 [ext_resource type="Texture2D" uid="uid://ck2fco1jvtwcc" path="res://Assets/placeholders/wall.jpg" id="2_jxumy"]
-[ext_resource type="Texture2D" uid="uid://dvd3lm0qgpgux" path="res://Assets/placeholders/ground.jpg" id="3_giieq"]
+[ext_resource type="Texture2D" uid="uid://brxrk8vctha23" path="res://Assets/AssetsFin/backround/backroundGrass.png" id="3_1akeu"]
 [ext_resource type="PackedScene" uid="uid://drh0m7hti8oyd" path="res://Scenes/MainScenes/character.tscn" id="4_0vvaf"]
+[ext_resource type="Texture2D" uid="uid://ci1b5tvydnxqs" path="res://Assets/AssetsFin/backround/forgroundGrass.png" id="4_aby4k"]
 [ext_resource type="PackedScene" uid="uid://dsjg0x61it0q0" path="res://Scenes/MainScenes/ball.tscn" id="6_d22wp"]
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="7_5ah3m"]
 [ext_resource type="Script" uid="uid://csh0h027jivwr" path="res://Scripts/reset_button.gd" id="7_xo65s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddf6i"]
-size = Vector2(1192, 108)
+size = Vector2(1192, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wa0de"]
 size = Vector2(214.33, 657.5)
@@ -18,9 +19,10 @@ size = Vector2(214.33, 657.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f21wm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvwpj"]
-size = Vector2(46, 534)
+size = Vector2(46, 644)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nflwl"]
+size = Vector2(20, 24.660393)
 
 [node name="Game" type="Node2D" unique_id=1693405210]
 script = ExtResource("1_2q06e")
@@ -30,18 +32,24 @@ position = Vector2(577.5, 322.49997)
 scale = Vector2(0.602, 0.6)
 texture = ExtResource("1_giieq")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=387530059 groups=["blocks"]]
+[node name="Grass" type="StaticBody2D" parent="." unique_id=387530059 groups=["blocks"]]
 collision_layer = 4
 
-[node name="Placeholder" type="Sprite2D" parent="StaticBody2D" unique_id=651508690 groups=["blocks"]]
-position = Vector2(578, 596.00006)
-scale = Vector2(0.7887769, 0.18456118)
-texture = ExtResource("3_giieq")
+[node name="BackgroundGrass" type="Sprite2D" parent="Grass" unique_id=651508690 groups=["blocks"]]
+position = Vector2(581, 582)
+scale = Vector2(0.63677907, 0.63677907)
+texture = ExtResource("3_1akeu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1162472197 groups=["blocks"]]
+[node name="ForgroundGrass" type="Sprite2D" parent="Grass" unique_id=1395332212 groups=["blocks"]]
+z_index = 2
+position = Vector2(580, 602)
+scale = Vector2(0.63677907, 0.63677907)
+texture = ExtResource("4_aby4k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass" unique_id=1162472197 groups=["blocks"]]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(581, 592)
+position = Vector2(574, 661)
 shape = SubResource("RectangleShape2D_ddf6i")
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=908692387 groups=["walls"]]
@@ -73,20 +81,20 @@ collision_layer = 8
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="PassThrough" unique_id=1172869244]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(751, 293)
+position = Vector2(751, 342)
 shape = SubResource("RectangleShape2D_gvwpj")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="PassThrough" unique_id=546642556]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(56, 293)
+position = Vector2(56, 348)
 shape = SubResource("RectangleShape2D_gvwpj")
 
 [node name="Detection area" type="Area2D" parent="." unique_id=1054492372]
 collision_mask = 32
 
 [node name="Detection area detection" type="CollisionShape2D" parent="Detection area" unique_id=174950893]
-position = Vector2(-70, 287)
+position = Vector2(-70, 344.856)
 scale = Vector2(8.007378, 24.8288)
 shape = SubResource("RectangleShape2D_nflwl")
 
