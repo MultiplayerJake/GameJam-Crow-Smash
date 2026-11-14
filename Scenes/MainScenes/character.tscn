@@ -4,26 +4,11 @@
 [ext_resource type="AudioStream" uid="uid://dngfgn0mmpf1h" path="res://Assets/SFX/Swing.mp3" id="3_tfkgr"]
 [ext_resource type="Animation" uid="uid://cktea6f7t4qm2" path="res://Assets/Animations/crow fly.res" id="4_7k7ox"]
 [ext_resource type="Texture2D" uid="uid://vvplokint27q" path="res://Assets/placeholders/bat.png" id="4_iuy1f"]
+[ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/placeholders/bat1.png" id="4_ji4ov"]
 [ext_resource type="Texture2D" uid="uid://cj2kbo6ycnuu4" path="res://Assets/placeholders/crow1.png" id="5_ji4ov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bat"]
 size = Vector2(1700, 400)
-
-[sub_resource type="Animation" id="Animation_iuy1f"]
-resource_name = "BatSwing"
-length = 0.23
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bat:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.7320601, 1.3693064]
-}
 
 [sub_resource type="Animation" id="Animation_7k7ox"]
 length = 0.2
@@ -222,7 +207,6 @@ tracks/15/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ji4ov"]
 _data = {
-&"BatSwing": SubResource("Animation_iuy1f"),
 &"RESET": SubResource("Animation_7k7ox"),
 &"crow fly": ExtResource("4_7k7ox")
 }
@@ -230,22 +214,6 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddf6i"]
 radius = 24.0
 height = 68.0
-
-[sub_resource type="Animation" id="Animation_ji4ov"]
-resource_name = "BatSwing"
-length = 0.22999999999999998
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bat:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.7320601, 1.180492]
-}
 
 [sub_resource type="Animation" id="Animation_ceius"]
 length = 0.001
@@ -261,11 +229,39 @@ tracks/0/keys = {
 "update": 0,
 "values": [-0.7320601]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bat1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.22075312]
+}
+
+[sub_resource type="Animation" id="Animation_2ed1e"]
+resource_name = "batSwing"
+length = 0.22999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bat1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.22075312, 1.8817648]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ceius"]
 _data = {
-&"BatSwing": SubResource("Animation_ji4ov"),
-&"RESET": SubResource("Animation_ceius")
+&"RESET": SubResource("Animation_ceius"),
+&"batSwing": SubResource("Animation_2ed1e")
 }
 
 [node name="character" type="CharacterBody2D" unique_id=710158590]
@@ -278,18 +274,32 @@ max_ball_speed = 800.0
 stream = ExtResource("3_tfkgr")
 
 [node name="Bat" type="Sprite2D" parent="." unique_id=106400254]
+visible = false
 position = Vector2(27.000008, 16)
 rotation = -0.7320601
 scale = Vector2(0.099666454, 0.099666454)
 texture = ExtResource("4_iuy1f")
 offset = Vector2(934, -318)
 
-[node name="BatHitbox" type="Area2D" parent="Bat" unique_id=1813379536]
+[node name="Bat1" type="Sprite2D" parent="." unique_id=2016694118]
+position = Vector2(47, -21)
+rotation = -0.22075312
+scale = Vector2(0.44077855, 0.47887468)
+texture = ExtResource("4_ji4ov")
+offset = Vector2(84.04, -76.145)
+
+[node name="BatHitbox" type="Area2D" parent="Bat1" unique_id=1813379536]
+position = Vector2(-62.65354, 66.24452)
+rotation = -0.47671327
+scale = Vector2(0.22194043, 0.21257196)
+skew = -0.070712805
 collision_layer = 0
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/BatHitbox" unique_id=534628778]
-position = Vector2(934, -318)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bat1/BatHitbox" unique_id=534628778]
+position = Vector2(748.60077, -217.58765)
+rotation = -0.23007609
+scale = Vector2(0.6805865, 0.67777854)
 shape = SubResource("RectangleShape2D_bat")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2107750829]
@@ -335,7 +345,7 @@ rest = Transform2D(-4.921873, -6.3665676, 2.6290915, -2.032501, -45, -70)
 [node name="fetherL1" type="Bone2D" parent="Skeleton2D/origin/wingL1" unique_id=1153095974]
 position = Vector2(-71, -28.000008)
 rotation = 2.8533907
-scale = Vector2(6.6792083, -2.3904483)
+scale = Vector2(6.6792083, -2.3904486)
 rest = Transform2D(-6.403734, 1.898423, 0.6794348, 2.291858, -71, -28.000008)
 
 [node name="tailOrigin" type="Bone2D" parent="Skeleton2D/origin" unique_id=123315016]
@@ -347,13 +357,13 @@ scale = Vector2(6.025253, -23.294958)
 rest = Transform2D(-4.978645, 3.3936365, 13.120548, 19.248539, 0, 0)
 
 [node name="tail2" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=109375203]
-rotation = -0.702814
+rotation = -0.7028139
 scale = Vector2(4.235239, 7.153245)
 rest = Transform2D(3.2315989, -2.7375205, 4.623625, 5.458114, 0, 0)
 
 [node name="tail3" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=105775641]
 rotation = 1.6154522
-scale = Vector2(3.470048, 6.0463552)
+scale = Vector2(3.4700482, 6.0463552)
 rest = Transform2D(-0.1549063, 3.4665885, -6.040328, -0.2699152, 0, 0)
 
 [node name="wingR1" type="Bone2D" parent="Skeleton2D/origin" unique_id=1908649707]

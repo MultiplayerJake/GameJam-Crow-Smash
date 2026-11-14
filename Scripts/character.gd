@@ -47,13 +47,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _try_hit_ball() -> void:
-	for body in $Bat/BatHitbox.get_overlapping_bodies():
+	for body in $Bat1/BatHitbox.get_overlapping_bodies():
 		if not body.is_in_group("ball"):
 			continue
 
 		swing_hit = true
 		var outward: Vector2 = (body.global_position - global_position).normalized()
-		var bat_direction: Vector2 = Vector2.RIGHT.rotated($Bat.global_rotation)
+		var bat_direction: Vector2 = Vector2.RIGHT.rotated($Bat1.global_rotation)
 		var hit_direction: Vector2 = (outward + bat_direction).normalized()
 		if hit_direction == Vector2.ZERO:
 			hit_direction = outward
@@ -66,11 +66,12 @@ func _try_hit_ball() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("swing"):
 		$AudioStreamPlayer2D.play()
-		$AnimationPlayer2.play("BatSwing")
+		$AnimationPlayer2.play("batSwing")
 		is_swinging = true
 		swing_hit = false
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "BatSwing":
+	if anim_name == "batSwing":
 		is_swinging = false
+	$AnimationPlayer2.stop()
