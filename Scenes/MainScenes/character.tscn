@@ -3,10 +3,48 @@
 [ext_resource type="Texture2D" uid="uid://b68xe0ifquh4m" path="res://Assets/placeholders/player.png" id="1_0xpt2"]
 [ext_resource type="Script" uid="uid://4mfjt5cgb04n" path="res://Scripts/character.gd" id="1_yviun"]
 [ext_resource type="AudioStream" uid="uid://dngfgn0mmpf1h" path="res://Assets/SFX/Swing.mp3" id="3_tfkgr"]
+[ext_resource type="Texture2D" uid="uid://vvplokint27q" path="res://Assets/placeholders/bat.png" id="4_iuy1f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddf6i"]
 radius = 24.0
 height = 100.0
+
+[sub_resource type="Animation" id="Animation_iuy1f"]
+resource_name = "BatSwing"
+length = 0.22999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bat:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.7320601, 1.3693064]
+}
+
+[sub_resource type="Animation" id="Animation_7k7ox"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bat:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7320601]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ji4ov"]
+_data = {
+&"BatSwing": SubResource("Animation_iuy1f"),
+&"RESET": SubResource("Animation_7k7ox")
+}
 
 [node name="character" type="CharacterBody2D" unique_id=710158590]
 collision_mask = 14
@@ -23,3 +61,13 @@ shape = SubResource("CapsuleShape2D_ddf6i")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1993744766]
 stream = ExtResource("3_tfkgr")
+
+[node name="Bat" type="Sprite2D" parent="." unique_id=106400254]
+position = Vector2(27.000008, 16)
+rotation = -0.7320601
+scale = Vector2(0.099666454, 0.099666454)
+texture = ExtResource("4_iuy1f")
+offset = Vector2(934, -318)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2107750829]
+libraries/ = SubResource("AnimationLibrary_ji4ov")
