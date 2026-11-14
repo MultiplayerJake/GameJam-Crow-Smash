@@ -3,9 +3,15 @@ extends Node2D
 const COINS_PATH := "res://Saves/coins.save"
 var coins: int = 0
 
+var owned_bats: Array[int] = []
+var owned_crows: Array[int] = []
+var equipped_bat: int = 1
+var equipped_crow: int = 1
+
 
 func _ready() -> void:
 	_load_coins()
+	_load_skins()
 	for i in range(1, 6):
 		var node_name = "Item" + str(i)
 		var btn = get_node(node_name) as Button
@@ -26,6 +32,14 @@ func _load_coins() -> void:
 	var f := FileAccess.open(COINS_PATH, FileAccess.READ)
 	if f:
 		coins = int(f.get_as_text().strip_edges())
+
+
+func _load_skins() -> void:
+	SkinData.load_skins()
+	owned_bats = SkinData.owned_bats
+	owned_crows = SkinData.owned_crows
+	equipped_bat = SkinData.equipped_bat
+	equipped_crow = SkinData.equipped_crow
 
 
 func _save_coins() -> void:

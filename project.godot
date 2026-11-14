@@ -19,6 +19,7 @@ config/icon="res://Assets/placeholders/icon.svg"
 
 AudioSettings="*res://Scripts/audio_settings.gd"
 MusicPlayer="*res://Scenes/MusicPlayer.tscn"
+SkinData="*res://Scripts/skin_data.gd"
 
 [audio]
 
