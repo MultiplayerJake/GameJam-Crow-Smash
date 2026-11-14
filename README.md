@@ -77,13 +77,13 @@ GameJame-Juno/
 │       ├── character.tscn        # Player, bat, hitbox, animation, SFX
 │       └── ball.tscn             # Ball body and sprite
 └── Scripts/
-    ├── menu.gd                   # Esc quits from the menu
-    ├── Play_button.gd            # Loads game.tscn
-    ├── exit_button.gd            # Quits the application
-    ├── game.gd                   # Score, lose condition, Esc to menu
-    ├── character.gd              # Movement, jetpack, bat swing/deflection
-    ├── ball.gd                   # Bouncing, wall signal, deviation
-    └── reset_button.gd           # Reloads the current scene
+	├── menu.gd                   # Esc quits from the menu
+	├── Play_button.gd            # Loads game.tscn
+	├── exit_button.gd            # Quits the application
+	├── game.gd                   # Score, lose condition, Esc to menu
+	├── character.gd              # Movement, jetpack, bat swing/deflection
+	├── ball.gd                   # Bouncing, wall signal, deviation
+	└── reset_button.gd           # Reloads the current scene
 ```
 
 ## Architecture

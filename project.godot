@@ -15,6 +15,15 @@ run/main_scene="uid://d4mofrg08uyvg"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Assets/placeholders/icon.svg"
 
+[autoload]
+
+AudioSettings="*res://Scripts/audio_settings.gd"
+MusicPlayer="*res://Scenes/MusicPlayer.tscn"
+
+[audio]
+
+buses/default_bus_layout="res://default_bus_layout.tres"
+
 [display]
 
 window/stretch/mode="canvas_items"
