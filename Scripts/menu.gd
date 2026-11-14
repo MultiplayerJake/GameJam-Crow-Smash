@@ -1,7 +1,7 @@
 extends Node2D
 
-var equipped_bat: int = 1
-var equipped_crow: int = 1
+var equipped_bat: int = 0
+var equipped_crow: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,6 +9,8 @@ func _ready() -> void:
 	SkinData.load_skins()
 	equipped_bat = SkinData.equipped_bat
 	equipped_crow = SkinData.equipped_crow
+	$CrowPreview.texture = SkinData.get_texture(SkinData.KIND_CROW, equipped_crow)
+	$BatPreview.texture = SkinData.get_texture(SkinData.KIND_BAT, equipped_bat)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
