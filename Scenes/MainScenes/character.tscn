@@ -9,6 +9,7 @@ radius = 24.0
 height = 100.0
 
 [node name="character" type="CharacterBody2D" unique_id=710158590]
+collision_mask = 14
 script = ExtResource("1_yviun")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310690841]
@@ -16,6 +17,8 @@ scale = Vector2(0.20609984, 0.20609984)
 texture = ExtResource("1_0xpt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1075351182]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("CapsuleShape2D_ddf6i")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1993744766]

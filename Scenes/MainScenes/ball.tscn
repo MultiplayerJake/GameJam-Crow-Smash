@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://dsjg0x61it0q0"]
 
+[ext_resource type="Script" uid="uid://2n3vyr6jlw5n" path="res://Scripts/ball.gd" id="1_edtry"]
 [ext_resource type="Texture2D" uid="uid://b4cf05knygb5x" path="res://Assets/placeholders/ball.png" id="1_prgsb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddf6i"]
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=301301403]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1146664732]
+collision_layer = 0
+collision_mask = 6
+script = ExtResource("1_edtry")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1221729906]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102248325]
 position = Vector2(-0.99999994, 0)
-scale = Vector2(-0.08521588, -0.08521588)
+rotation = 3.1415927
+scale = Vector2(0.08521588, 0.08521588)
 texture = ExtResource("1_prgsb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1442466150]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1305562026]
 scale = Vector2(3.196805, 3.196805)
 shape = SubResource("CircleShape2D_ddf6i")
 
-[node name="ball" type="Node2D" parent="." unique_id=1247335969]
+[node name="ball" type="Node2D" parent="." unique_id=1560912178]
 scale = Vector2(0.32068127, 0.32068127)
