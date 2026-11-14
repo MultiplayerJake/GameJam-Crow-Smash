@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://4mfjt5cgb04n" path="res://Scripts/character.gd" id="1_yviun"]
 [ext_resource type="AudioStream" uid="uid://dngfgn0mmpf1h" path="res://Assets/SFX/Swing.mp3" id="3_tfkgr"]
 [ext_resource type="Animation" uid="uid://cktea6f7t4qm2" path="res://Assets/Animations/crow fly.res" id="4_7k7ox"]
-[ext_resource type="Texture2D" uid="uid://vvplokint27q" path="res://Assets/placeholders/bat.png" id="4_iuy1f"]
-[ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/placeholders/bat1.png" id="4_ji4ov"]
-[ext_resource type="Texture2D" uid="uid://cj2kbo6ycnuu4" path="res://Assets/placeholders/crow1.png" id="5_ji4ov"]
+[ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/AssetsFin/bat1.png" id="4_ji4ov"]
+[ext_resource type="Texture2D" uid="uid://cj2kbo6ycnuu4" path="res://Assets/AssetsFin/character/crow1.png" id="5_ji4ov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bat"]
 size = Vector2(1806.5754, 400)
@@ -15,151 +14,151 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Bat:rotation")
+tracks/0/path = NodePath("Skeleton2D/origin/head:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.7320601, 1.3173589]
+"values": [Vector2(56, -76)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton2D/origin/head:position")
+tracks/1/path = NodePath("Skeleton2D/origin/wingL1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(56, -76)]
+"values": [Vector2(2, -95)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton2D/origin/wingL1:position")
+tracks/2/path = NodePath("Skeleton2D/origin/wingL1/wingL2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2, -95)]
+"values": [Vector2(-45, -70)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton2D/origin/wingL1/wingL2:position")
+tracks/3/path = NodePath("Skeleton2D/origin/wingL1/fetherL1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-45, -70)]
+"values": [Vector2(-71, -28.000008)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Skeleton2D/origin/wingL1/fetherL1:position")
+tracks/4/path = NodePath("Skeleton2D/origin/tailOrigin:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-71, -28.000008)]
+"values": [Vector2(0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Skeleton2D/origin/tailOrigin:position")
+tracks/5/path = NodePath("Skeleton2D/origin/wingR1:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(48, -112)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Skeleton2D/origin/wingR1:position")
+tracks/6/path = NodePath("Skeleton2D/origin/wingR1/wingR2:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(48, -112)]
+"values": [Vector2(78, -64)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Skeleton2D/origin/wingR1/wingR2:position")
+tracks/7/path = NodePath("Skeleton2D/origin/wingR1/fetherR1:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(78, -64)]
+"values": [Vector2(74, -39.000004)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Skeleton2D/origin/wingR1/fetherR1:position")
+tracks/8/path = NodePath("Skeleton2D/origin/wingL1:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(74, -39.000004)]
+"values": [0.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Skeleton2D/origin/wingL1:rotation")
+tracks/9/path = NodePath("Skeleton2D/origin/wingL1/wingL2:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [-2.2289064]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Skeleton2D/origin/wingL1/wingL2:rotation")
+tracks/10/path = NodePath("Skeleton2D/origin/wingL1/fetherL1:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-2.2289064]
+"values": [2.8533907]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Skeleton2D/origin/wingL1/fetherL1:rotation")
+tracks/11/path = NodePath("Skeleton2D/origin/tailOrigin:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.8533907]
+"values": [0.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Skeleton2D/origin/tailOrigin:rotation")
+tracks/12/path = NodePath("Skeleton2D/origin/wingR1:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -171,34 +170,22 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Skeleton2D/origin/wingR1:rotation")
+tracks/13/path = NodePath("Skeleton2D/origin/wingR1/wingR2:rotation")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [-1.1245983]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Skeleton2D/origin/wingR1/wingR2:rotation")
+tracks/14/path = NodePath("Skeleton2D/origin/wingR1/fetherR1:rotation")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.1245983]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("Skeleton2D/origin/wingR1/fetherR1:rotation")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -220,22 +207,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Bat:rotation")
+tracks/0/path = NodePath("Bat1:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.7320601]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Bat1:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -273,15 +248,8 @@ max_ball_speed = 800.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1993744766]
 stream = ExtResource("3_tfkgr")
 
-[node name="Bat" type="Sprite2D" parent="." unique_id=106400254]
-visible = false
-position = Vector2(27.000008, 16)
-rotation = -0.7320601
-scale = Vector2(0.099666454, 0.099666454)
-texture = ExtResource("4_iuy1f")
-offset = Vector2(934, -318)
-
 [node name="Bat1" type="Sprite2D" parent="." unique_id=2016694118]
+z_index = 1
 position = Vector2(47, -21)
 rotation = -0.22075312
 scale = Vector2(0.44077855, 0.47887468)
@@ -358,7 +326,7 @@ rest = Transform2D(-4.978645, 3.3936365, 13.120548, 19.248539, 0, 0)
 
 [node name="tail2" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=109375203]
 rotation = -0.70281386
-scale = Vector2(4.235239, 7.153245)
+scale = Vector2(4.235239, 7.1532454)
 rest = Transform2D(3.2315989, -2.7375205, 4.623625, 5.458114, 0, 0)
 
 [node name="tail3" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=105775641]
