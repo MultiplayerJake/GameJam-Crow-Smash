@@ -19,19 +19,17 @@ func _find_track() -> AudioStream:
 		if ResourceLoader.exists(path):
 			return load(path)
 
-	var dir := DirAccess.open(MUSIC_DIR)
-	if dir == null:
-		return null
+	var files := ResourceLoader.list_directory(MUSIC_DIR)
+	if files.is_empty():
+		var dir := DirAccess.open(MUSIC_DIR)
+		if dir == null:
+			return null
+		files = PackedStringArray(dir.get_files())
 
-	dir.list_dir_begin()
-	var file_name := dir.get_next()
-	while file_name != "":
-		if not dir.current_is_dir() and file_name.get_extension().to_lower() in AUDIO_EXTENSIONS:
-			var path := "%s/%s" % [MUSIC_DIR, file_name]
-			dir.list_dir_end()
-			return load(path)
-		file_name = dir.get_next()
-	dir.list_dir_end()
+	for entry in files:
+		var file_name := entry.get_file().trim_suffix(".import").trim_suffix(".remap")
+		if file_name.get_extension().to_lower() in AUDIO_EXTENSIONS:
+			return load(MUSIC_DIR.path_join(file_name))
 	return null
 
 

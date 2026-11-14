@@ -5,8 +5,8 @@ const SAVE_FILE := "skins.save"
 const KIND_BAT := "bat"
 const KIND_CROW := "crow"
 
-const BAT_DIR := "res://Assets/AssetsFin/character/bat"
-const CROW_DIR := "res://Assets/AssetsFin/character/crow"
+const BAT_DIRS := ["res://Assets/AssetsFin/character/bat", "res://Assets/AssetsFin/bat"]
+const CROW_DIRS := ["res://Assets/AssetsFin/character/crow"]
 const BAT_PREFIX := "batSkin"
 const CROW_PREFIX := "crowSkin"
 
@@ -31,24 +31,32 @@ func _build_catalog() -> void:
 	if _catalog_ready:
 		return
 	_catalog_ready = true
-	_scan_skins(BAT_DIR, BAT_PREFIX, KIND_BAT)
-	_scan_skins(CROW_DIR, CROW_PREFIX, KIND_CROW)
+	for dir_path in BAT_DIRS:
+		_scan_skins(dir_path, BAT_PREFIX, KIND_BAT)
+	for dir_path in CROW_DIRS:
+		_scan_skins(dir_path, CROW_PREFIX, KIND_CROW)
+	if not skin_textures[KIND_BAT].has(0):
+		push_warning("No %s skin 0 found" % KIND_BAT)
+	if not skin_textures[KIND_CROW].has(0):
+		push_warning("No %s skin 0 found" % KIND_CROW)
 
 
 func _scan_skins(dir_path: String, prefix: String, kind: String) -> void:
-	var dir := DirAccess.open(dir_path)
-	if dir == null:
-		push_warning("Skin folder missing: %s" % dir_path)
-		return
-	for file_name in dir.get_files():
+	var files := ResourceLoader.list_directory(dir_path)
+	if files.is_empty():
+		var dir := DirAccess.open(dir_path)
+		if dir == null:
+			push_warning("Skin folder missing: %s" % dir_path)
+			return
+		files = PackedStringArray(dir.get_files())
+	for entry in files:
+		var file_name := entry.get_file().trim_suffix(".import").trim_suffix(".remap")
 		if not file_name.begins_with(prefix) or not file_name.ends_with(".png"):
 			continue
 		var number_text := file_name.trim_prefix(prefix).get_basename()
 		if not number_text.is_valid_int():
 			continue
 		skin_textures[kind][int(number_text)] = load(dir_path.path_join(file_name))
-	if not skin_textures[kind].has(0):
-		push_warning("No %s skin 0 found in %s" % [kind, dir_path])
 
 
 func load_skins() -> void:
