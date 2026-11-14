@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://cs3mrtyjfbjq8"]
 
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_bg"]
+[ext_resource type="Script" uid="uid://dg8jupe74dw1a" path="res://Scripts/shop.gd" id="1_cl1qf"]
 [ext_resource type="FontFile" uid="uid://ctfp4o6kope0" path="res://Assets/Fonts/Alternity.ttf" id="2_font"]
 [ext_resource type="Texture2D" uid="uid://6rkhqp6dcl2q" path="res://Assets/placeholders/bat1.png" id="3_bat"]
-[ext_resource type="Script" path="res://Scripts/back_to_menu_shop.gd" id="4_exit"]
+[ext_resource type="Script" uid="uid://s0n6ydv13hne" path="res://Scripts/back_to_menu_shop.gd" id="4_exit"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_black"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="Shop" type="Node2D" unique_id=1944360329]
+script = ExtResource("1_cl1qf")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1944360330]
 position = Vector2(577.5, 322.49997)
@@ -23,6 +25,7 @@ offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 
 [node name="Image" type="TextureRect" parent="Item1" unique_id=1944360332]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 15.0
 offset_right = 180.0
@@ -33,15 +36,14 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Price" type="Label" parent="Item1" unique_id=1944360333]
-offset_left = 0.0
+layout_mode = 0
 offset_top = 180.0
 offset_right = 200.0
 offset_bottom = 240.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
-text = "100"
+text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -53,6 +55,7 @@ offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 
 [node name="Image" type="TextureRect" parent="Item2" unique_id=1944360335]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 15.0
 offset_right = 180.0
@@ -63,15 +66,14 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Price" type="Label" parent="Item2" unique_id=1944360336]
-offset_left = 0.0
+layout_mode = 0
 offset_top = 180.0
 offset_right = 200.0
 offset_bottom = 240.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
-text = "100"
+text = "500"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -83,6 +85,7 @@ offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 
 [node name="Image" type="TextureRect" parent="Item3" unique_id=1944360338]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 15.0
 offset_right = 180.0
@@ -93,11 +96,10 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Price" type="Label" parent="Item3" unique_id=1944360339]
-offset_left = 0.0
+layout_mode = 0
 offset_top = 180.0
 offset_right = 200.0
 offset_bottom = 240.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
@@ -113,6 +115,7 @@ offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 
 [node name="Image" type="TextureRect" parent="Item4" unique_id=1944360341]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 15.0
 offset_right = 180.0
@@ -123,11 +126,10 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Price" type="Label" parent="Item4" unique_id=1944360342]
-offset_left = 0.0
+layout_mode = 0
 offset_top = 180.0
 offset_right = 200.0
 offset_bottom = 240.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
@@ -143,6 +145,7 @@ offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
 
 [node name="Image" type="TextureRect" parent="Item5" unique_id=1944360344]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 15.0
 offset_right = 180.0
@@ -153,11 +156,10 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Price" type="Label" parent="Item5" unique_id=1944360345]
-offset_left = 0.0
+layout_mode = 0
 offset_top = 180.0
 offset_right = 200.0
 offset_bottom = 240.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
