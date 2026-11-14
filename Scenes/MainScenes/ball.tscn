@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsjg0x61it0q0"]
 
 [ext_resource type="Script" uid="uid://2n3vyr6jlw5n" path="res://Scripts/ball.gd" id="1_edtry"]
-[ext_resource type="Texture2D" uid="uid://b4cf05knygb5x" path="res://Assets/placeholders/ball.png" id="1_prgsb"]
+[ext_resource type="Texture2D" uid="uid://b6gg8jbr1pgay" path="res://Assets/placeholders/ball (2).png" id="2_edtry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddf6i"]
 
@@ -12,10 +12,8 @@ script = ExtResource("1_edtry")
 max_deviation_degrees = 15.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102248325]
-position = Vector2(-0.99999994, 0)
-rotation = 3.1415927
-scale = Vector2(0.08521588, 0.08521588)
-texture = ExtResource("1_prgsb")
+scale = Vector2(0.63158685, 0.63158685)
+texture = ExtResource("2_edtry")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1305562026]
 scale = Vector2(3.196805, 3.196805)
