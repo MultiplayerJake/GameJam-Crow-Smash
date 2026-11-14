@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cj2kbo6ycnuu4" path="res://Assets/placeholders/crow1.png" id="5_ji4ov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bat"]
-size = Vector2(1700, 400)
+size = Vector2(1806.5754, 400)
 
 [sub_resource type="Animation" id="Animation_7k7ox"]
 length = 0.2
@@ -244,7 +244,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2ed1e"]
 resource_name = "batSwing"
-length = 0.22999999999999998
+length = 0.23
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -272,7 +272,6 @@ max_ball_speed = 800.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1993744766]
 stream = ExtResource("3_tfkgr")
-bus = &"SFX"
 
 [node name="Bat" type="Sprite2D" parent="." unique_id=106400254]
 visible = false
@@ -298,9 +297,9 @@ collision_layer = 0
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat1/BatHitbox" unique_id=534628778]
-position = Vector2(748.60077, -217.58765)
-rotation = -0.23007609
-scale = Vector2(0.6805865, 0.67777854)
+position = Vector2(783.91187, -225.8583)
+rotation = -0.23007613
+scale = Vector2(0.68058646, 0.67777854)
 shape = SubResource("RectangleShape2D_bat")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2107750829]
@@ -358,13 +357,13 @@ scale = Vector2(6.025253, -23.294958)
 rest = Transform2D(-4.978645, 3.3936365, 13.120548, 19.248539, 0, 0)
 
 [node name="tail2" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=109375203]
-rotation = -0.7028139
+rotation = -0.70281386
 scale = Vector2(4.235239, 7.153245)
 rest = Transform2D(3.2315989, -2.7375205, 4.623625, 5.458114, 0, 0)
 
 [node name="tail3" type="Bone2D" parent="Skeleton2D/origin/tailOrigin" unique_id=105775641]
 rotation = 1.6154522
-scale = Vector2(3.4700482, 6.0463552)
+scale = Vector2(3.4700484, 6.0463552)
 rest = Transform2D(-0.1549063, 3.4665885, -6.040328, -0.2699152, 0, 0)
 
 [node name="wingR1" type="Bone2D" parent="Skeleton2D/origin" unique_id=1908649707]
