@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://34o118j5nof2"]
 
+[ext_resource type="Script" uid="uid://enemvwk00yd8" path="res://Scripts/game.gd" id="1_2q06e"]
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_giieq"]
 [ext_resource type="Texture2D" uid="uid://ck2fco1jvtwcc" path="res://Assets/placeholders/wall.jpg" id="2_jxumy"]
 [ext_resource type="Texture2D" uid="uid://dvd3lm0qgpgux" path="res://Assets/placeholders/ground.jpg" id="3_giieq"]
@@ -17,7 +18,8 @@ size = Vector2(22.965103, 14.868258)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nflwl"]
 
-[node name="Level" type="Node2D" unique_id=1693405210]
+[node name="Game" type="Node2D" unique_id=1693405210]
+script = ExtResource("1_2q06e")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1942340858]
 position = Vector2(577.5, 322.49997)
@@ -38,13 +40,15 @@ scale = Vector2(63.753437, -7.147952)
 shape = SubResource("RectangleShape2D_ddf6i")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=2026067026]
-position = Vector2(371, 238)
+position = Vector2(284, 243)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1547461545]
+position = Vector2(59, 63.999992)
 scale = Vector2(6.5349994, 6.373278)
 shape = SubResource("RectangleShape2D_gvwpj")
 
 [node name="Icon" type="Sprite2D" parent="RigidBody2D" unique_id=1299699572]
+position = Vector2(60, 63)
 texture = ExtResource("4_li8oe")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=908692387]

@@ -13,6 +13,6 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	var error = get_tree().change_scene_to_file(game_scene)
-	
+	print("changed the scene to Game scene")
 	if error != OK:
 		print("Failed to change scene, error code: ", error)
