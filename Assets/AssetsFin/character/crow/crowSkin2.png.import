@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbfcw5pk8ry6w"
-path="res://.godot/imported/crowSkin2.png-33e2b161f71b347f82709dea694d315b.ctex"
+path="res://.godot/imported/crowSkin2.png-0d2685488822f4fb47422e81399881b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/AssetsFin/crowFolder/crowSkin2.png"
-dest_files=["res://.godot/imported/crowSkin2.png-33e2b161f71b347f82709dea694d315b.ctex"]
+source_file="res://Assets/AssetsFin/character/crow/crowSkin2.png"
+dest_files=["res://.godot/imported/crowSkin2.png-0d2685488822f4fb47422e81399881b9.ctex"]
 
 [params]
 

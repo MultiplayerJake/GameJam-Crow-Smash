@@ -19,6 +19,14 @@ position = Vector2(577.5, 322.49997)
 scale = Vector2(0.602, 0.6)
 texture = ExtResource("1_i0lhy")
 
+[node name="CrowPreview" type="Sprite2D" parent="."]
+position = Vector2(985, 260)
+scale = Vector2(0.38, 0.38)
+
+[node name="BatPreview" type="Sprite2D" parent="."]
+position = Vector2(985, 455)
+scale = Vector2(0.45, 0.45)
+
 [node name="Play_button" type="Button" parent="." unique_id=1745499528]
 custom_minimum_size = Vector2(600, 100)
 custom_maximum_size = Vector2(600, 600)
