@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b47tam7kp8qy2"]
 
+[ext_resource type="Script" uid="uid://enemvwk00yd8" path="res://Scripts/game.gd" id="1_2q06e"]
 [ext_resource type="Texture2D" uid="uid://diu3uyc7d6hfd" path="res://Assets/Backgrounds/demo01_PixelSky_1920x1080.png" id="1_giieq"]
 [ext_resource type="Texture2D" uid="uid://ck2fco1jvtwcc" path="res://Assets/placeholders/wall.jpg" id="2_jxumy"]
 [ext_resource type="Texture2D" uid="uid://dvd3lm0qgpgux" path="res://Assets/placeholders/ground.jpg" id="3_giieq"]
@@ -20,7 +21,8 @@ size = Vector2(46, 534)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nflwl"]
 
-[node name="Level" type="Node2D" unique_id=1693405210]
+[node name="Game" type="Node2D" unique_id=1693405210]
+script = ExtResource("1_2q06e")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1942340858]
 position = Vector2(577.5, 322.49997)
