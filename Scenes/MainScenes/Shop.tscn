@@ -45,7 +45,7 @@ offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
-text = "10"
+text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -119,8 +119,8 @@ offset_top = 120.0
 offset_right = 897.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
-metadata/ProductID = 4
-metadata/Kind = "crow"
+metadata/ProductID = 1
+metadata/Kind = "bat"
 
 [node name="Image" type="TextureRect" parent="Item4" unique_id=1944360341]
 layout_mode = 0
@@ -141,7 +141,7 @@ offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
-text = "100"
+text = "250"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -151,8 +151,8 @@ offset_top = 120.0
 offset_right = 1117.5
 offset_bottom = 370.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_black")
-metadata/ProductID = 5
-metadata/Kind = "crow"
+metadata/ProductID = 2
+metadata/Kind = "bat"
 
 [node name="Image" type="TextureRect" parent="Item5" unique_id=1944360344]
 layout_mode = 0
@@ -173,7 +173,7 @@ offset_bottom = 240.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
-text = "100"
+text = "500"
 horizontal_alignment = 1
 vertical_alignment = 1
 
