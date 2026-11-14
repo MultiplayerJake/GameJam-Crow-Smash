@@ -12,7 +12,8 @@ var swing_hit := false
 
 
 func _ready() -> void:
-	$AnimationPlayer.animation_finished.connect(_on_animation_finished)
+	$AnimationPlayer2.animation_finished.connect(_on_animation_finished)
+	$AnimationPlayer.speed_scale = 2
 
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +26,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_just_released("jatpack"):
 		velocity.y = 0
+
+	if velocity.y != 0:
+		$AnimationPlayer.play("crow fly")
+	else:
+		$AnimationPlayer.pause()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -60,7 +66,7 @@ func _try_hit_ball() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("swing"):
 		$AudioStreamPlayer2D.play()
-		$AnimationPlayer.play("BatSwing")
+		$AnimationPlayer2.play("BatSwing")
 		is_swinging = true
 		swing_hit = false
 
