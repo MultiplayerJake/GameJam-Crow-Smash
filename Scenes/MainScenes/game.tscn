@@ -37,13 +37,11 @@ texture = ExtResource("2_qp21n")
 centered = false
 
 [node name="cloud1" type="Sprite2D" parent="." unique_id=295644674]
-position = Vector2(1041.9999, 0)
 scale = Vector2(0.4535112, 0.4535112)
 texture = ExtResource("3_cbecx")
 centered = false
 
 [node name="cloud2" type="Sprite2D" parent="." unique_id=1235280687]
-position = Vector2(685, 0)
 scale = Vector2(0.4535112, 0.4535112)
 texture = ExtResource("4_ik8wt")
 centered = false
