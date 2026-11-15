@@ -3,11 +3,13 @@
 > **Game Jam:** Built at **Haven Prague** — a **Hack Club Haven** game jam — on **14–15 November 2026**.
 > Event page: [haven.hackclub.com/prague](https://haven.hackclub.com/prague)
 
-### You can play the game now [*here.*](https://multiplayerjake.itch.io/crow-smash)
+**Play on itch.io: [multiplayerjake.itch.io/crow-smash](https://multiplayerjake.itch.io/crow-smash)**
 
 ## About the Game
 
 Crow Smash is a small 2D arcade game made with Godot 4.7. You control a crow with a jetpack and a bat: keep the ball in play, swing it into the right wall for points and coins, and spend the coins on crow and bat skins.
+
+Created by @MultiplayerJake with @juwno.
 
 ## Documentation
 
@@ -18,9 +20,11 @@ Crow Smash is a small 2D arcade game made with Godot 4.7. You control a crow wit
 
 ### Download & Play
 
-#### You can play it on [Itch.io here.](https://multiplayerjake.itch.io/crow-smash)
+**The main way to play is on itch.io:** [Play Crow Smash on itch.io](https://multiplayerjake.itch.io/crow-smash). It runs in the browser.
 
-1. Open the [latest GitHub release](https://github.com/MultiplayerJake/GameJame-Juno/releases/latest).
+Prefer a Windows download? Use the GitHub release instead:
+
+1. Open the [latest GitHub release](https://github.com/MultiplayerJake/GameJame-Crow-Smash/releases/latest).
 2. Download the Windows build and extract it if it is an archive.
 3. Run `Crow_Smash.exe`. There is no installer.
 
@@ -132,7 +136,7 @@ Create the new folder if it does not exist. Do not copy the repository's `Saves/
 **Run from the command line:**
 
 ```bash
-godot --path "C:\path\to\GameJame-Juno"
+godot --path "C:\path\to\GameJame-Crow-Smash"
 ```
 
 Use the full path to your Godot 4.7 executable if `godot` is not on `PATH`.
@@ -146,7 +150,7 @@ Use the full path to your Godot 4.7 executable if `godot` is not on `PATH`.
 ### Project Structure
 
 ```text
-GameJame-Juno/
+GameJame-Crow-Smash/
 ├── project.godot             # Main scene, input map, autoloads, renderer
 ├── export_presets.cfg        # Windows Desktop preset
 ├── default_bus_layout.tres   # Master / Music / SFX buses
@@ -236,3 +240,9 @@ The current tree has known issues. These are not fixed by this documentation; se
 - **The tracked `Saves/` files are not the files the game reads.** Runtime saves go to `user://Saves`; repository files and older `res://Saves` data are stale and never migrated.
 - **The fullscreen checkbox gets out of sync.** Re-entering Settings while the window is already fullscreen shows an unchecked box, so the first click appears to do nothing. Fullscreen is also not persisted across restarts.
 - **Save writes are non-atomic and unchecked, and shop purchases are not transactional.** A failed write or a crash can silently lose coins, high score, skins, or settings; a purchase deducts coins before skin ownership is safely persisted.
+
+## Links
+
+- **Play on itch.io:** https://multiplayerjake.itch.io/crow-smash
+- **Source and releases:** https://github.com/MultiplayerJake/GameJame-Crow-Smash
+- **Game jam:** https://haven.hackclub.com/prague
