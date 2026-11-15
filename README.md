@@ -1,176 +1,234 @@
-# Bounc back template
+# Crow Smash
 
-A small Godot 4.7 breakout/pong-style game where you move a character, swing a bat to deflect a ball, and rack up points by bouncing it off the wall.
+> **Game Jam:** Built at **Haven Prague** — a **Hack Club Haven** game jam — on **14–15 November 2026**.
+> Event page: [haven.hackclub.com/prague](https://haven.hackclub.com/prague)
 
-## Features
+## About the Game
 
-- **Character movement** with left/right control and a jetpack-style jump that applies upward velocity while held.
-- **Bat swing deflection** — swing the bat to aim the ball away from the player and toward the bat's direction, boosting its speed on contact (one hit per swing).
-- **Ball physics** — reflects off surfaces with true normal-based bouncing, keeps a constant speed, and adds a small random deviation when it hits a wall.
-- **Scoring** — each wall hit increments the score (`Score: N`) while the player has not lost.
-- **Lose condition** — if the ball reaches the off-screen detection area on the left, the score resets, a `You Lose!` message appears, and the ball freezes.
-- **Reset** — the Reset button reloads the current scene for a fresh game.
-- **Menu** — Play launches the game, Exit quits the application.
+Crow Smash is a small 2D arcade game made with Godot 4.7. You control a crow with a jetpack and a bat: keep the ball in play, swing it into the right wall for points and coins, and spend the coins on crow and bat skins.
 
-## Requirements
+## Documentation
 
-- **Godot 4.7** (project feature tags: `4.7`, `Forward Plus`).
-- **Forward Plus** renderer (set in `project.godot`).
-- Windows uses the **D3D12** rendering driver by default (`rendering/rendering_device/driver.windows="d3d12"`).
-- No external libraries or plugins are required.
+- [Project structure](structure.md) — scenes, scripts, autoloads, gameplay formulas, saves, tuning, and export.
+- [Known bugs](known_bugs.md) — current review snapshot with severity, reproduction steps, and suggested fixes.
 
-The project also sets `physics/3d/physics_engine="Jolt Physics"`. This is a 3D physics setting and has no effect on this 2D game (see [Known notes](#known-notes--limitations)).
+## For Players
 
-## How to run
+### Download & Play
 
-### From the editor
+1. Open the [latest GitHub release](https://github.com/MultiplayerJake/GameJame-Juno/releases/latest).
+2. Download the Windows build and extract it if it is an archive.
+3. Run `Crow_Smash.exe`. There is no installer.
+
+The Windows build is unsigned, so SmartScreen may show "Windows protected your PC". Choose **More info**, then **Run anyway** to start the game.
+
+If the download also contains a `.pck` file, keep it in the same folder as `Crow_Smash.exe`.
+
+### How to Play
+
+Keep the ball from leaving the left side of the screen. Swing the bat to send the ball toward the right wall; every hit on the right wall adds 1 point and awards coins. The run ends when the ball leaves on the left.
+
+| Action | Input |
+| --- | --- |
+| Move left | `A` or `Left Arrow` |
+| Move right | `D` or `Right Arrow` |
+| Jetpack (hold) | `W` or `Up Arrow` |
+| Swing bat | `Space` or `Left Mouse Button` |
+| Back to menu / quit | `Esc` |
+
+`Esc` returns to the menu from the game and quits the application from the menu. The Shop and Settings screens do not use `Esc`; use their on-screen **EXIT** / **BACK** buttons. `S` / `Down Arrow` is mapped but not used by the current build.
+
+Scoring and the run:
+
+- Each hit on the right wall adds 1 point (`Score: N`).
+- Each right-wall hit also awards `clampi(1 + score / 10, 1, 5)` coins, where `score` is the score before that hit's +1 and `/` is integer division. The first hit awards 1 coin; the award rises to 2 at a pre-hit score of 10, 3 at 20, 4 at 30, and 5 at 40 or more.
+- Your high score is saved and shown on the HUD; it persists across runs.
+- If the ball leaves the left side, the run ends, "You Lose!" appears, and the **Reset** button is shown. Reset starts a fresh run; coins, high score, and skins are kept.
+- There is no win condition; play for a higher score and more coins.
+
+### Shop & Skins
+
+The Shop sells three crow skins and three bat skins. Skin 0 is the default skin for each kind, is owned from the start, and is not sold.
+
+| Item | Kind | Skin | Price |
+| --- | --- | --- | --- |
+| Crow 1 | `crow` | 1 | 100 |
+| Crow 2 | `crow` | 2 | 250 |
+| Crow 3 | `crow` | 3 | 500 |
+| Bat 1 | `bat` | 1 | 250 |
+| Bat 2 | `bat` | 2 | 500 |
+| Bat 3 | `bat` | 3 | 750 |
+
+Click an item to buy it when you have enough coins; a purchased skin is equipped immediately. Click an owned skin to equip it. The **DEFAULT** button equips skin 0 for both kinds without spending coins. Coins, ownership, and the equipped skins persist between runs and restarts.
+
+The item label shows `EQUIPPED`, `OWNED`, or the price. If a skin texture is missing, the item shows `N/A` and is disabled; all six current items have textures.
+
+### Settings
+
+- **Music** and **SFX** sliders adjust the two audio buses. Values apply immediately.
+- **Fullscreen** toggles the current window mode.
+- Fullscreen is not remembered after restart; the game starts windowed again. This is a known limitation.
+- Audio volumes are saved automatically; the fullscreen choice is not saved.
+
+### Saving
+
+The game saves automatically; there is no manual save button.
+
+Save folder (Godot `user://Saves`):
+
+```text
+%APPDATA%\Godot\app_userdata\Crow Smash\Saves
+```
+
+| File | What it stores |
+| --- | --- |
+| `coins.save` | Current coin balance (plain integer text) |
+| `high_score.save` | Best score (plain integer text) |
+| `skins.save` | Owned skin numbers and equipped skin numbers |
+| `settings.cfg` | Music and SFX volume values |
+
+Coins are written after each scoring hit and after a shop purchase. The high score is written when it is beaten. Skins are written on first load (if the file is missing), on purchase, and on equip; **DEFAULT** equips skin 0 for both kinds. Audio settings are written 0.25 seconds after the last slider change, so quitting within that window can lose the last volume change (see the known bugs below).
+
+Deleting the save folder resets coins, high score, owned/equipped skins, and audio settings to their defaults. The `Saves/` folder in the repository is **not** used at runtime; the tracked files there are stale samples. For save data, the game only reads and writes the user-data folder shown above.
+
+**Migrating from "Bounc back":** the project was renamed from `Bounc back template` (and briefly `Bounc back`) to `Crow Smash`, which changed Godot's `user://` folder. The current build does **not** migrate automatically. To keep old progress, close the game and copy `coins.save`, `high_score.save`, `skins.save`, and `settings.cfg` from:
+
+```text
+%APPDATA%\Godot\app_userdata\Bounc back template\Saves
+```
+
+If you previously ran a build named `Bounc back`, also check:
+
+```text
+%APPDATA%\Godot\app_userdata\Bounc back\Saves
+```
+
+Copy the newest copies of those four files to:
+
+```text
+%APPDATA%\Godot\app_userdata\Crow Smash\Saves
+```
+
+Create the new folder if it does not exist. Do not copy the repository's `Saves/` files; they are not live data.
+
+## For Programmers
+
+### Engine & Setup
+
+- **Engine:** Godot 4.7.x. The project was tested with Godot 4.7.2. It uses the Forward Plus renderer and the D3D12 rendering driver on Windows.
+- **Download:** [Godot for Windows](https://godotengine.org/download/windows/)
+- **No plugins or external libraries** are used; the project is GDScript plus built-in Godot nodes.
+
+**Run from the editor:**
 
 1. Open the Godot 4.7 Project Manager.
-2. **Import** and select `project.godot` in this folder.
-3. Press **F5** (Play). The main scene is the menu (`uid://d4mofrg08uyvg` → `res://Scenes/MainScenes/menu.tscn`).
+2. Choose **Import** and select `project.godot` in this folder.
+3. Press **F5**. The main scene is `Scenes/MainScenes/menu.tscn` (`uid://d4mofrg08uyvg`).
 
-### From the command line
+**Run from the command line:**
 
 ```bash
 godot --path "C:\path\to\GameJame-Juno"
 ```
 
-Use the path to your Godot 4.7 executable if `godot` is not on your `PATH`.
+Use the full path to your Godot 4.7 executable if `godot` is not on `PATH`.
 
-## Controls
+**Export a Windows build:**
 
-| Action | Input | Input action |
-| --- | --- | --- |
-| Move left | `A` or `Left Arrow` | `left` |
-| Move right | `D` or `Right Arrow` | `right` |
-| Jetpack / Jump | `W` or `Up Arrow` | `jatpack` |
-| Move down | `S` or `Down Arrow` | `down` (defined, unused by scripts) |
-| Swing bat | `Space` | `swing` |
-| Back to menu / Quit | `Esc` | built-in `ui_cancel` |
+1. Install export templates with **Editor > Manage Export Templates**.
+2. Open **Project > Export** and select the **Windows Desktop** preset.
+3. Export. The preset writes `../Builds/Build2/Crow_Smash.exe` relative to the project folder, so the output lands in a sibling `Builds/Build2` directory outside this repository. Because `embed_pck` is disabled, the export also produces a `.pck` file; keep it next to the executable.
 
-`Esc` is handled in code through Godot's built-in `ui_cancel` action: in the game scene it returns to the menu, and in the menu it quits the application. The custom `Esc` input action defined in `project.godot` is currently not referenced by any script.
-
-## Project structure
+### Project Structure
 
 ```text
 GameJame-Juno/
-├── project.godot                 # Engine config, input map, layers, renderer
+├── project.godot             # Main scene, input map, autoloads, renderer
+├── export_presets.cfg        # Windows Desktop preset
+├── default_bus_layout.tres   # Master / Music / SFX buses
 ├── README.md
-├── Assets/
-│   ├── Backgrounds/
-│   │   ├── demo01_PixelSky_1920x1080.png   # Menu + game background
-│   │   └── demo02_PixelSky_1920x1080.png   # Unused alternate background
-│   ├── placeholders/
-│   │   ├── player.png            # Character sprite
-│   │   ├── ball.png              # Ball sprite
-│   │   ├── bat.png               # Bat sprite
-│   │   ├── ground.jpg            # Floor sprite
-│   │   ├── wall.jpg              # Right wall sprite
-│   │   ├── line.jpg              # Unused placeholder
-│   │   └── icon.svg              # Project icon
-│   └── SFX/
-│       └── Swing.mp3             # Bat swing sound
+├── structure.md
+├── known_bugs.md
+├── Saves/                    # Tracked samples; not read at runtime
 ├── Scenes/
-│   └── MainScenes/
-│       ├── menu.tscn             # Main scene: Play / Exit buttons
-│       ├── game.tscn             # Playfield, walls, detection area, HUD
-│       ├── character.tscn        # Player, bat, hitbox, animation, SFX
-│       └── ball.tscn             # Ball body and sprite
-└── Scripts/
-	├── menu.gd                   # Esc quits from the menu
-	├── Play_button.gd            # Loads game.tscn
-	├── exit_button.gd            # Quits the application
-	├── game.gd                   # Score, lose condition, Esc to menu
-	├── character.gd              # Movement, jetpack, bat swing/deflection
-	├── ball.gd                   # Bouncing, wall signal, deviation
-	└── reset_button.gd           # Reloads the current scene
+│   ├── MusicPlayer.tscn      # Autoload music player
+│   └── MainScenes/           # menu, game, Shop, Settings, character, ball
+├── Scripts/                  # 18 GDScript files
+└── Assets/                   # Art, fonts, music, SFX, animation
 ```
 
-## Architecture
+See [structure.md](structure.md) for the full directory tree, scene and script tables, scene flow, autoload dependencies, collision and input maps, gameplay formulas, save formats, audio buses, tuning values, and export/import notes.
 
-### Character (`Scenes/MainScenes/character.tscn`, `Scripts/character.gd`)
+### How It Works
 
-`CharacterBody2D` with a capsule collider, a `Sprite2D`, a `Bat` sprite, a `BatHitbox` (`Area2D`), an `AudioStreamPlayer2D` (swing sound), and an `AnimationPlayer`.
+**Scene flow.** `menu.tscn` is the main scene. **PLAY** opens `game.tscn`; **SHOP** opens `Shop.tscn`; **SETTINGS** opens `Settings.tscn`; **EXIT** quits. Shop's **EXIT** and Settings' **BACK** return to the menu. In the game, `ui_cancel` (`Esc`) returns to the menu. After a loss, **Reset** reloads `game.tscn`. All transitions use `get_tree().change_scene_to_file()`.
 
-- **Movement:** `Input.get_axis("left", "right")` sets horizontal velocity at `SPEED`; releasing the input decelerates with `move_toward`.
-- **Jetpack:** while `jatpack` is held, `velocity.y` is set to `JUMP_VELOCITY` every physics frame; on release it is zeroed. Gravity via `get_gravity()` applies when not on the floor.
-- **Swing:** pressing `swing` plays `Swing.mp3`, starts the `BatSwing` animation, and sets `is_swinging = true` / `swing_hit = false`.
-- **Deflection:** while swinging and before a hit, `_try_hit_ball()` polls `$Bat/BatHitbox.get_overlapping_bodies()`. On the first `ball`-group body it:
-  1. Computes `outward` = normalized vector from the player to the ball.
-  2. Computes `bat_direction` = `Vector2.RIGHT.rotated($Bat.global_rotation)`.
-  3. Sets the hit direction to `(outward + bat_direction).normalized()`.
-  4. Raises `ball.speed` by `hit_speed_boost`, capped at `max_ball_speed`, and sets `ball.velocity = hit_direction * ball.speed`.
-  5. Sets `swing_hit = true` and returns, so only one hit is registered per swing.
-- The `BatSwing` animation finishes and sets `is_swinging = false`.
+**Autoloads.**
 
-### Ball (`Scenes/MainScenes/ball.tscn`, `Scripts/ball.gd`)
+| Autoload | Path | Role |
+| --- | --- | --- |
+| `SavePaths` | `res://Scripts/save_paths.gd` | Resolves `user://Saves`, creates the folder, and returns file paths. |
+| `AudioSettings` | `res://Scripts/audio_settings.gd` | Loads/applies Music and SFX volumes and saves `settings.cfg` after a 0.25 s debounce. |
+| `MusicPlayer` | `res://Scenes/MusicPlayer.tscn` | Finds a track in `res://Assets/Music`, loops it, and plays it on the `Music` bus. |
+| `SkinData` | `res://Scripts/skin_data.gd` | Builds the skin catalog and handles owned/equipped skin state and `skins.save`. |
 
-`CharacterBody2D` in the `ball` group with a circle collider. It starts with `speed = 400.0` and an initial up-and-right velocity (`Vector2(1, -1).normalized() * speed`).
+**Gameplay loop.**
 
-- Each physics frame calls `move_and_collide(velocity * delta)`.
-- On collision it reflects with `velocity.bounce(normal)`.
-- If the collider is in the `walls` group, it emits `hit_wall` and applies a random rotation of `±max_deviation_degrees`.
-- If the collider is in the `blocks` group, it bounces cleanly with no score.
-- After each bounce, velocity is renormalized to `speed` so the ball keeps a consistent speed (until the bat boosts it).
+- `character.gd` moves the player at `SPEED = 300`, applies `JUMP_VELOCITY = -400` while the jetpack is held, and plays the crow fly animation. The swing input starts a bat animation and the bat hitbox polls for the ball while swinging.
+- On a bat hit, the outgoing direction is `(outward + bat_direction).normalized()`, where `outward` points from the player to the ball and `bat_direction` is `Vector2.RIGHT.rotated(Bat1.global_rotation)`. Ball speed increases by the scene value `hit_speed_boost = 10`, capped at the scene value `max_ball_speed = 800`. Only the first ball hit per swing is applied.
+- `ball.gd` starts at speed `500` in the up-right direction, uses `move_and_collide()`, reflects with `velocity.bounce(normal)`, and renormalizes to `speed` after a bounce. Hitting a body in the `walls` group emits `hit_wall` and adds a random deviation of up to ±15 degrees; `blocks` bounce cleanly.
+- `game.gd` connects `ball.hit_wall`. Each hit awards coins, adds 1 to the score, saves a new high score, and refreshes the HUD. If the ball enters the left `Detection area`, the run ends: the ball's velocity is zeroed, physics is disabled, and the lose label and Reset button appear.
+- Reset calls `get_tree().reload_current_scene()`. Coins and high score are loaded from disk on the next game start.
 
-### Game flow (`Scripts/game.gd`, `game.tscn`)
+**Shop and skin catalog.** Skin indices are 0-based. `SkinData` scans `res://Assets/AssetsFin/character/bat` and `res://Assets/AssetsFin/bat` for `batSkin<number>.png`, and `res://Assets/AssetsFin/character/crow` for `crowSkin<number>.png`. Prefixes and the `.png` extension are matched case-sensitively. Missing files are ignored. `get_texture()` falls back to skin 0, and equipped skins fall back to 0 when they are not owned or have no texture. Skin 0 is always in the owned list. The shop items carry `ProductID` and `Kind` metadata; prices come from each item's `Price` label.
 
-- `_ready()` hides the lose label and reset button, connects `ball.hit_wall` and `Detection area.body_entered`, and shows `Score: 0`.
-- **Scoring:** each `hit_wall` increments `score` and updates `ScoreLabel` to `Score: N` (ignored if `has_lost`).
-- **Losing:** when a `ball`-group body enters the `Detection area` (`Area2D`, mask 32), `_lose()` sets `has_lost`, resets the score to 0, shows `You Lose!` and the `Reset button`, then zeroes the ball's velocity and disables its physics.
-- **Menu navigation:** `ui_cancel` (Esc) changes the scene to `res://Scenes/MainScenes/menu.tscn`.
-- **Reset:** `reset_button.gd` calls `get_tree().reload_current_scene()`, restarting the game with a fresh score and ball.
+**Audio buses.** `default_bus_layout.tres` defines `Master` with `Music` and `SFX` sending to it. `MusicPlayer` plays on `Music`; the swing sound uses `SFX`. `AudioSettings` converts the 0.0-1.0 values to bus volume in dB and mutes a bus at or below 0.001. Defaults are music `0.7` and SFX `0.8`.
 
-### Collision layers
+### Save Files
 
-Godot layer numbers and their bitmask values used by this project:
+The exact runtime path is:
 
-| Layer | Bitmask value | Used by | Group | Notes |
-| --- | --- | --- | --- | --- |
-| 1 | 1 | Player body | — | Default layer; ball does not collide with it |
-| 2 | 2 | `Walls` | `walls` | Right wall; triggers `hit_wall` and scoring |
-| 3 | 4 | `StaticBody2D` floor / `Blocks` ceiling | `blocks` | Ball bounces cleanly, no score |
-| 4 | 8 | `PassThrough` obstacles | — | Player collides, ball passes through |
-| 6 | 32 | Ball | `ball` | Detected by bat hitbox and detection area |
+```text
+%APPDATA%\Godot\app_userdata\Crow Smash\Saves
+```
 
-Masks:
+`SavePaths.dir` is `ProjectSettings.globalize_path("user://Saves")`. The folder is created on startup.
 
-- **Ball** `collision_mask = 6` → hits layers 2 + 3 (Walls + Blocks).
-- **Player** `collision_mask = 14` → hits layers 2 + 3 + 4 (Walls + Blocks + PassThrough).
-- **`Bat/BatHitbox`** `collision_mask = 32` → detects the ball (layer 0, so it detects only).
-- **`Detection area`** `collision_mask = 32` → detects the ball.
+| File | Format | Written when |
+| --- | --- | --- |
+| `coins.save` | Decimal integer as text, for example `150` | After each scoring hit and after a shop purchase. |
+| `high_score.save` | Decimal integer as text, for example `42` | When the current score beats the stored high score. |
+| `skins.save` | Four text lines: `BAT: ...`, `CROW: ...`, `EQ-BAT: N`, `EQ-CROW: N` | On first load if missing; on purchase, equip, and DEFAULT. |
+| `settings.cfg` | ConfigFile with an `[audio]` section and `music` / `sfx` floats | 0.25 s after the last Music or SFX slider change. |
 
-Because only the right wall is in the `walls` group, scoring happens on right-wall hits. The floor and ceiling are in `blocks`, and the left side is `PassThrough`, so a ball leaving to the left reaches the off-screen detection area and ends the run.
+Example `skins.save`:
 
-## Tuning gameplay
+```text
+BAT: 0, 1, 2
+CROW: 0, 3
+EQ-BAT: 1
+EQ-CROW: 0
+```
 
-Values marked **scene** are overridden in the `.tscn` and take precedence over the script defaults marked **script**.
+Example `settings.cfg`:
 
-| Setting | Location | Default | Current effective value | Effect |
-| --- | --- | --- | --- | --- |
-| `SPEED` | `Scripts/character.gd` | `200.0` | `200.0` | Horizontal player movement speed |
-| `JUMP_VELOCITY` | `Scripts/character.gd` | `-400.0` | `-400.0` | Upward velocity while the jetpack is held |
-| `hit_speed_boost` | `Scripts/character.gd` (export) | `100.0` | `10.0` (**scene**) | Speed added to the ball per bat hit |
-| `max_ball_speed` | `Scripts/character.gd` (export) | `900.0` | `700.0` (**scene**) | Upper speed cap after bat boosts |
-| `speed` | `Scripts/ball.gd` (not exported) | `400.0` | `400.0` | Base ball speed and post-bounce speed |
-| `max_deviation_degrees` | `Scripts/ball.gd` (export) | `5.0` | `15.0` (**scene**) | Max random angle added on wall hits |
+```ini
+[audio]
 
-Notes for tuning:
+music=0.7
+sfx=0.8
+```
 
-- Boost values set in `character.tscn` override the script defaults, so edit the instance in `character.tscn` (or the exported property in the editor) for gameplay changes.
-- `speed` in `ball.gd` is a plain variable, not `@export`, so change it in the script; the initial velocity uses it.
-- Changing collision masks/layers requires updating both the ball and the affected bodies (see the collision layer table). For example, giving the player body a non-default layer and adding it to the ball's mask would let the ball bounce off the player.
-- To change which surfaces score, add/remove bodies from the `walls` group or adjust `ball.gd`'s group checks.
+The files are plain text with no version field, and writes use `FileAccess.WRITE` directly. The current code does not recover from partial writes or report most I/O failures (see the known bugs). The repository `Saves/` folder is not the runtime location and is not read.
 
-## Known notes & limitations
+**Migration.** The rename from `Bounc back template` (and briefly `Bounc back`) changed Godot's default `user://` root, so old saves live under `%APPDATA%\Godot\app_userdata\Bounc back template\Saves` (or `...\Bounc back\Saves`). No migration code runs. Close the game and copy the four files into the new `Crow Smash\Saves` folder to keep progress.
 
-- **Placeholder art and odd scaling:** all gameplay visuals are placeholders. Many are scaled unusually, e.g. the player sprite `scale` is `0.206`, the bat sprite uses `scale` `0.0997` with a large `offset` of `(934, -318)` and a `1700 × 400` hitbox, and the ball's collision circle is scaled to `3.197`. These are intentional stand-ins and not final art.
-- **Custom `Esc` action is unused:** `project.godot` defines `Esc` with `device:16` while all other actions use `device:-1`. The scripts use the built-in `ui_cancel` action instead, so `Esc` works through `ui_cancel`, and the custom action can be removed or ignored.
-- **`down` is unused:** the `down` action (`S` / `Down Arrow`) is mapped but not read by any script.
-- **Jolt 3D setting on a 2D game:** `physics/3d/physics_engine="Jolt Physics"` only affects 3D physics and has no impact here.
-- **Layer names are render-layer names:** `[layer_names]` only names `2d_render/layer_2="Walls"` and `2d_render/layer_3="Blocks"`; the ball (layer 6) and pass-through (layer 4) are unnamed, and these are render layers rather than physics-layer labels.
-- **Scoring only on the right wall:** the floor/ceiling are `blocks` (no score) and the left edge is pass-through, so points come from the right wall via the `walls` group.
-- **No win condition:** the game only tracks score and a lose state. Reaching a target score does nothing.
-- **Game over freezes the ball:** after losing, the ball's physics is disabled; the Reset button reloads the scene to play again.
-- **Stale editor temp files:** `Scenes/MainScenes/` contains leftover `menu.tscn*.tmp` files (Godot editor temporaries). They are not used by the project and can be safely deleted.
-- **Empty stub callbacks:** `game.gd` and `menu.gd` contain empty `_process(delta)` (and `menu.gd` an empty `_ready()`), which are harmless placeholders.
+### Known Bugs
+
+The current tree has known issues. These are not fixed by this documentation; see [known_bugs.md](known_bugs.md) for reproduction steps and suggested fixes.
+
+- **The project rename moves `user://` and orphans existing saves.** Old coins, high score, skins, and settings in the `Bounc back template` (or brief `Bounc back`) folder are ignored until copied manually.
+- **Audio changes can be lost on exit.** `settings.cfg` is written only after a 0.25 s debounce, so quitting or closing the window before the timer fires drops the last volume change.
+- **The tracked `Saves/` files are not the files the game reads.** Runtime saves go to `user://Saves`; repository files and older `res://Saves` data are stale and never migrated.
+- **The fullscreen checkbox gets out of sync.** Re-entering Settings while the window is already fullscreen shows an unchecked box, so the first click appears to do nothing. Fullscreen is also not persisted across restarts.
+- **Save writes are non-atomic and unchecked, and shop purchases are not transactional.** A failed write or a crash can silently lose coins, high score, skins, or settings; a purchase deducts coins before skin ownership is safely persisted.
