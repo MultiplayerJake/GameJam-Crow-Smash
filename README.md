@@ -3,7 +3,7 @@
 > **Game Jam:** Built at **Haven Prague** — a **Hack Club Haven** game jam — on **14–15 November 2026**.
 > Event page: [haven.hackclub.com/prague](https://haven.hackclub.com/prague)
 
-### You can play the game now here: https://multiplayerjake.itch.io/crow-smash
+### You can play the game now [*here*](https://multiplayerjake.itch.io/crow-smash)
 
 ## About the Game
 
