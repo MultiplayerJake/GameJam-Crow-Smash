@@ -9,7 +9,7 @@
 
 Crow Smash is a small 2D arcade game made with Godot 4.7. You control a crow with a jetpack and a bat: keep the ball in play, swing it into the right wall for points and coins, and spend the coins on crow and bat skins.
 
-Created by @MultiplayerJake with @juwno.
+Created by [@MultiplayerJake](https://github.com/MultiplayerJake) with [@juwno.](https://github.com/juwno)
 
 ## Documentation
 
