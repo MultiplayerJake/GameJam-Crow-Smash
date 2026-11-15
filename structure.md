@@ -9,7 +9,7 @@ The project is a Godot 4.7.x 2D game (`config/features=PackedStringArray("4.7", 
 `.godot/` is Godot's generated cache and is ignored by Git; it is omitted below. Each `.png`, `.mp3`, and `.ttf` asset has a tracked `.import` sidecar, shown as `(+ .import)`. Each `.gd` script has a tracked `.uid` sidecar, shown as `(+ .uid)`.
 
 ```text
-GameJame-Juno/
+GameJame-Crow-Smash/
 ├── project.godot
 ├── export_presets.cfg
 ├── default_bus_layout.tres
