@@ -16,6 +16,8 @@ Crow Smash is a small 2D arcade game made with Godot 4.7. You control a crow wit
 
 ### Download & Play
 
+You can play it on the web [here](https://multiplayerjake.itch.io/crow-smash)
+
 1. Open the [latest GitHub release](https://github.com/MultiplayerJake/GameJame-Juno/releases/latest).
 2. Download the Windows build and extract it if it is an archive.
 3. Run `Crow_Smash.exe`. There is no installer.
